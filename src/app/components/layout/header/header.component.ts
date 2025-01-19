@@ -21,49 +21,7 @@ import { TranslateComponent } from '../../translate/translate.component';
     MatBadgeModule,
     TranslateComponent
   ],
-  template: `
-    <mat-toolbar color="primary">
-      <div class="nav-links">
-        <a mat-button routerLink="/"><app-translate key="nav.home"></app-translate></a>
-        <a mat-button routerLink="/news"><app-translate key="nav.news"></app-translate></a>
-        <a mat-button routerLink="/about"><app-translate key="nav.about"></app-translate></a>
-      </div>
-      <div class="actions">
-        <div class="auth-buttons">
-          <ng-container *ngIf="!isAuthenticated">
-            <a mat-button routerLink="/login">
-              <app-translate key="nav.login"></app-translate>
-            </a>
-            <a mat-raised-button color="accent" routerLink="/register">
-              <app-translate key="nav.signup"></app-translate>
-            </a>
-          </ng-container>
-          <ng-container *ngIf="isAuthenticated">
-            <a mat-icon-button routerLink="/messages" matBadge="2" matBadgeColor="accent">
-              <mat-icon>mail</mat-icon>
-            </a>
-            <a mat-raised-button 
-               color="accent" 
-               routerLink="/profile">
-              <app-translate key="nav.profile"></app-translate>
-            </a>
-          </ng-container>
-        </div>
-        <div class="lang-switcher">
-          <button mat-raised-button 
-                  (click)="switchLanguage('en')" 
-                  [color]="currentLang === 'en' ? 'accent' : ''">
-            English
-          </button>
-          <button mat-raised-button 
-                  (click)="switchLanguage('ar')" 
-                  [color]="currentLang === 'ar' ? 'accent' : ''">
-            عربي
-          </button>
-        </div>
-      </div>
-    </mat-toolbar>
-  `,
+  templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
