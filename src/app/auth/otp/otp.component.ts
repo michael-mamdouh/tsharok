@@ -34,7 +34,7 @@ export class OtpComponent implements OnInit, OnDestroy {
   email: string | null;
   otpInputs: FormGroup;
   resendDisabled = true;
-  timeLeft = 5;
+  timeLeft = 60;
   timerSubscription?: Subscription;
 
   constructor(
@@ -77,7 +77,7 @@ export class OtpComponent implements OnInit, OnDestroy {
 
   startResendTimer() {
     this.resendDisabled = true;
-    this.timeLeft = 5;
+    this.timeLeft = 60;
     
     if (this.timerSubscription) {
       this.timerSubscription.unsubscribe();
