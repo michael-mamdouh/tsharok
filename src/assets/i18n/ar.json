@@ -125,7 +125,9 @@
       "didntReceive": "لم أتلقى الرسالة!",
       "resend": "إعادة إرسال",
       "next": "التالي",
-      "otpExpired": "انتهت صلاحية OTP!"
+      "otpExpired": "انتهت صلاحية OTP!",
+      "accountCreatedSuccessfully": "تم إنشاء الحساب بنجاح",
+      "backtoLogin": "العودة لتسجيل الدخول"
     }
   }
 }

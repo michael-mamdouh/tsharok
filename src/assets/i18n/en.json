@@ -125,7 +125,9 @@
       "didntReceive": "Didn't receive the code?",
       "resend": "Resend",
       "next": "Next",
-      "otpExpired": "OTP has expired"
+      "otpExpired": "OTP has expired",
+      "accountCreatedSuccessfully": "Account has been created successfully",
+      "backtoLogin": "Back to Login"
     }
   }
 }

@@ -59,6 +59,24 @@
         color:#B4B9C9;
         font-weight: 400;
         font-size: 16px;
-        
+
+    }
+}
+.success__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+    gap: 50px;
+    h4{
+        font-weight: 500;
+        font-size: 32px;
+        color:#B4B9C9;
+        text-align: center;
+    }
+    img{
+        max-width: 330px;
+        max-height: 230px;
     }
 }
