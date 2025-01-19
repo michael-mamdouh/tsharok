@@ -117,6 +117,15 @@
       "confirmPassword": "Confirm Password",
       "login": "Login",
       "passwordsMismatch": "Passwords do not match"
+    },
+    "otp": {
+      "conformOtp": "Conform OTP",
+      "welcomeTo": "Welcome to",
+      "otpSend":"OTP has been sent to your email",
+      "didntReceive": "Didn't receive the code?",
+      "resend": "Resend",
+      "next": "Next",
+      "otpExpired": "OTP has expired"
     }
   }
 }
