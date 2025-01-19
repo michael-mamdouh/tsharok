@@ -55,6 +55,10 @@ export class LoginComponent {
     return TranslateComponent.translateValue(key, this.langService);
   }
 
+  getDirectionIcon(): string {
+    return document.dir === 'rtl' ? 'arrow_forward' : 'arrow_back';
+  }
+
   onSubmit() {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;

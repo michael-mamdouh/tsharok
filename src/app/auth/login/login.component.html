@@ -1,7 +1,4 @@
 <div class="auth-container-wrapper">
-  <button mat-icon-button class="back-button" (click)="goBack()">
-    <mat-icon>arrow_back</mat-icon>
-  </button>
   <div class="auth-container">
     <div class="container-fluid">
       <div class="row">
@@ -13,6 +10,9 @@
         </div>
         <div class="col-7">
           <div class="auth-container__form-wrapper">
+            <button mat-icon-button class="form-back-button" (click)="goBack()">
+              <mat-icon>{{ getDirectionIcon() }}</mat-icon>
+            </button>
             <h2><app-translate key="auth.login.title"></app-translate></h2>
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
               <div>
@@ -21,7 +21,7 @@
                     <app-translate key="auth.login.email"></app-translate>
                   </label>
                   <mat-form-field appearance="outline">
-                    <mat-icon matPrefix>mail</mat-icon>
+                    <mat-icon matPrefix>mail_outlined</mat-icon>
                     <input
                       matInput
                       type="email"
@@ -41,7 +41,7 @@
                     <app-translate key="auth.login.password"></app-translate>
                   </label>
                   <mat-form-field appearance="outline">
-                    <mat-icon matPrefix>lock</mat-icon>
+                    <mat-icon matPrefix>lock_outlined</mat-icon>
                     <button
                       mat-icon-button
                       matSuffix
@@ -51,7 +51,7 @@
                       [attr.aria-pressed]="hide()"
                     >
                       <mat-icon>{{
-                        hide() ? "visibility_off" : "visibility"
+                        hide() ? "visibility_off_outlined" : "visibility_outlined"
                       }}</mat-icon>
                     </button>
                     <input

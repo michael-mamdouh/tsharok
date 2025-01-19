@@ -4,24 +4,23 @@
     background-color: #1976d2;
     position: relative;
     min-height: 100vh;
-    
-    .back-button {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        z-index: 10;
-        color: white;
-        
-        [dir="rtl"] & {
-            left: auto;
-            right: 20px;
+
+    .form-back-button {
+        width: 56px;
+        height: 56px;
+        background-color: rgba(180, 185, 201, 0.2);
+        border-radius: 10px !important;
+        margin-bottom: 30px;
+        color: #807d7e;
+        ::ng-deep .mat-mdc-button-persistent-ripple{
+            border-radius: 10px;
         }
     }
 
-    .auth-container{
+    .auth-container {
         position: relative;
         z-index: 2;
-        .auth-container__img-wrapper{
+        .auth-container__img-wrapper {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -29,7 +28,7 @@
             min-height: calc(100vh - 32px);
             flex-direction: column;
         }
-        .auth-container__form-wrapper{
+        .auth-container__form-wrapper {
             background-color: white;
             margin-top: 16px;
             margin-bottom: 16px;
@@ -39,16 +38,16 @@
             color: white;
             min-height: calc(100vh - 32px);
             flex-direction: column;
-            padding:60px 100px;
+            padding: 50px 100px;
         }
     }
-    h1{
+    h1 {
         font-weight: 900;
         font-size: 56px;
         margin-bottom: 44px;
     }
-    h2{
-        color:#807D7E;
+    h2 {
+        color: #807d7e;
         font-size: 32px;
         font-weight: 500;
         margin-bottom: 24px;
