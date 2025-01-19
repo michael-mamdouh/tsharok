@@ -84,13 +84,13 @@ export class SignupComponent {
       });
     }else{
       if(this.signupForm.get('password')?.value !== this.signupForm.get('confirmPassword')?.value){
-        this.snackBar.open('Passwords do not match', 'Close', {
+        this.snackBar.open(this.getTranslatedText('auth.signup.passwordsMismatch'), 'Close', {
           duration: 3000,
           horizontalPosition: 'center',
           verticalPosition: 'top',
         });
       }else if(this.signupForm.get('terms')?.value === false){
-        this.snackBar.open('Please accept terms and conditions', 'Close', {
+        this.snackBar.open(this.getTranslatedText('auth.signup.termsRequired'), 'Close', {
           duration: 3000,
           horizontalPosition: 'center',
           verticalPosition: 'top',

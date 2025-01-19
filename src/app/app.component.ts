@@ -34,7 +34,8 @@ export class AppComponent {
       const excludeFromHeader =
         window.location.href.includes("/login") ||
         window.location.href.includes("/register") ||
-        window.location.href.includes("/signup");
+        window.location.href.includes("/signup") ||
+        window.location.href.includes("/otp");
       this.showHeader = !excludeFromHeader; // Hide header on login page
     });
   }
