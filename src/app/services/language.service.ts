@@ -33,6 +33,25 @@ export class LanguageService {
     return cookie ? cookie.split('=')[1] : null;
   }
 
+  private loadBootstrapCSS(isRTL: boolean) {
+    // Remove existing Bootstrap CSS
+    const existingLink = document.head.querySelector('link[data-bootstrap-css]');
+    if (existingLink) {
+      existingLink.remove();
+    }
+
+    // Create new link element
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.setAttribute('data-bootstrap-css', 'true');
+    link.href = isRTL 
+      ? '/assets/css/bootstrap/bootstrap.rtl.min.css'
+      : '/assets/css/bootstrap/bootstrap.min.css';
+
+    // Add new link to head
+    document.head.appendChild(link);
+  }
+
   async loadTranslations() {
     const response = await fetch(`/assets/i18n/${this.currentLang.value}.json`);
     this.translations = await response.json();
@@ -40,8 +59,10 @@ export class LanguageService {
   }
 
   private updateDocumentDirection() {
+    const isRTL = this.currentLang.value === 'ar';
     document.documentElement.lang = this.currentLang.value;
-    document.documentElement.dir = this.currentLang.value === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+    this.loadBootstrapCSS(isRTL);
   }
 
   async setLanguage(lang: string) {

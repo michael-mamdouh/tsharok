@@ -1,27 +1,4 @@
-mat-toolbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 16px;
-
-  .nav-links a {
-    margin-right: 8px;
-  }
-
-  .actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-
-    .auth-buttons {
-      margin-right: 1rem;
-      
-      a {
-        margin-left: 8px;
-      }
-    }
-
-    .lang-switcher button {
-      margin-left: 8px;
-    }
-  }
+.footer-wrapper{
+  background-color: #EEF5FC;
+  padding: 90px 0;
 }
