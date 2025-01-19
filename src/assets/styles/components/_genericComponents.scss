@@ -1,0 +1,101 @@
+@import "../components/direction";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @include direction-font;
+    line-height: normal !important;
+}
+
+form {
+    padding: 0;
+    label {
+        color: #807d7e;
+        font-size: 14px;
+        @include direction-font;
+        font-weight: 400;
+    }
+    input {
+        border: 1px solid #b4b9c959;
+        border-radius: 6px !important;
+        @include direction-font;
+        font-weight: 400 !important;
+        font-size: 16px !important;
+        padding: 16px;
+    }
+    .form_item {
+        display: flex;
+        flex-direction: column;
+        &:not(:last-child) {
+            margin-bottom: 28px;
+        }
+        &:last-child {
+            margin-bottom: 10px;
+        }
+        label {
+            margin-bottom: 11px;
+        }
+        mat-icon {
+            color: #b4b9c9;
+        }
+    }
+}
+
+mat-error {
+    color: #ff0000;
+    font-weight: 300;
+    font-size: 14px;
+    @include direction-font;
+}
+
+.mat-mdc-form-field-error-wrapper {
+    padding: 0 !important;
+}
+
+.generic-underline-button {
+    font-size: 14px;
+    @include direction-font;
+    font-weight: 400;
+    color: #807d7e;
+}
+
+.generic-error {
+    color: #ff0000;
+    font-weight: 500;
+    font-size: 16px;
+    @include direction-font;
+    display: flex;
+    align-items: center;
+}
+
+.generic-submit-button {
+    margin-top: 48px;
+    @include direction-font;
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    background-color: #1976d2 !important;
+    padding: 16px !important;
+    border-radius: 6px;
+    height: unset !important;
+    width: 100%;
+}
+
+.create-account-button {
+    margin-top: 70px;
+    @include direction-font;
+    font-weight: 400;
+    font-size: 14px;
+    color: #807d7e;
+    text-align: center;
+
+    a {
+        color: #807d7e;
+        text-decoration: none;
+        font-weight: 700;
+        margin: 0 5px;
+    }
+}

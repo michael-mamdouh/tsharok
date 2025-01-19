@@ -1,0 +1,11 @@
+<div class="container">
+  <h1><app-translate key="about.title"></app-translate></h1>
+  <p><app-translate key="about.description"></app-translate></p>
+  
+  <div class="counter-section">
+    <p class="counter">{{ counterService.counter$ | async }}</p>
+    <button mat-raised-button color="primary" (click)="incrementCounter()">
+      Count Up
+    </button>
+  </div>
+</div>

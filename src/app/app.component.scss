@@ -1,0 +1,13 @@
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+
+  .nav-links a {
+    margin-right: 8px;
+  }
+
+  .lang-switcher button {
+    margin-left: 8px;
+  }
+}

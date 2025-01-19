@@ -1,0 +1,51 @@
+/* Add application styles & imports to this file! */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "components/_genericComponents.scss";
+@import "components/_direction.scss";
+
+
+@font-face {
+  font-family: "Tajawal";
+  src:
+    url("/assets/fonts/Tajawal/Tajawal-Regular.eot") format("embedded-opentype"),
+    url("/assets/fonts/Tajawal/Tajawal-Regular.otf") format("otf"),
+    url("/assets/fonts/Tajawal/Tajawal-Regular.woff") format("woff"),
+    url("/assets/fonts/Tajawal/Tajawal-Regular.ttf") format("truetype"),
+    url("/assets/fonts/Tajawal/Tajawal-Regular.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Inter";
+  src:
+    url("/assets/fonts/Inter/Inter-Regular.eot") format("embedded-opentype"),
+    url("/assets/fonts/Inter/Inter-Regular.otf") format("otf"),
+    url("/assets/fonts/Inter/Inter-Regular.woff") format("woff"),
+    url("/assets/fonts/Inter/Inter-Regular.ttf") format("truetype"),
+    url("/assets/fonts/Inter/Inter-Regular.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src:
+    url("/assets/fonts/Roboto/Roboto-Regular.eot") format("embedded-opentype"),
+    url("/assets/fonts/Roboto/Roboto-Regular.otf") format("otf"),
+    url("/assets/fonts/Roboto/Roboto-Regular.woff") format("woff"),
+    url("/assets/fonts/Roboto/Roboto-Regular.ttf") format("truetype"),
+    url("/assets/fonts/Roboto/Roboto-Regular.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+    url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+    url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}

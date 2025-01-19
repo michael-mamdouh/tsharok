@@ -1,0 +1,34 @@
+<div class="auth-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title><app-translate key="auth.otp.title"></app-translate></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="otp-message">
+        <app-translate key="auth.otp.message"></app-translate>
+        <strong>{{ email }}</strong>
+      </p>
+      
+      <form [formGroup]="otpForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline">
+          <mat-label><app-translate key="auth.otp.code"></app-translate></mat-label>
+          <input matInput type="text" formControlName="otp" maxlength="6">
+          <mat-error *ngIf="otpForm.get('otp')?.errors?.['required']">
+            <app-translate key="auth.otp.required"></app-translate>
+          </mat-error>
+          <mat-error *ngIf="otpForm.get('otp')?.errors?.['minlength'] || otpForm.get('otp')?.errors?.['maxlength']">
+            <app-translate key="auth.otp.invalid"></app-translate>
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="!otpForm.valid">
+          <app-translate key="auth.otp.verify"></app-translate>
+        </button>
+        
+        <button mat-button type="button" (click)="resendOtp()">
+          <app-translate key="auth.otp.resend"></app-translate>
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

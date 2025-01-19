@@ -1,0 +1,21 @@
+<div class="container">
+  <div *ngIf="loading" class="loading-container">
+    <mat-spinner diameter="40"></mat-spinner>
+  </div>
+
+  <div *ngIf="newsItem && !loading" class="news-details">
+    <button mat-button color="primary" (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+      <app-translate key="news.backToList"></app-translate>
+    </button>
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ newsItem.title }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ newsItem.body }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

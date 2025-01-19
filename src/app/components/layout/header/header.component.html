@@ -1,0 +1,24 @@
+<<mat-toolbar color="primary">
+  <div class="nav-links">
+    <a mat-button routerLink="/">{{ langService.translate('nav.home') }}</a>
+    <a mat-button routerLink="/about">{{ langService.translate('nav.about') }}</a>
+  </div>
+  <div class="actions">
+    <div class="auth-buttons">
+      <a mat-button routerLink="/login">Login</a>
+      <a mat-raised-button color="accent" routerLink="/signup">Sign Up</a>
+    </div>
+    <div class="lang-switcher">
+      <button mat-raised-button 
+              (click)="switchLanguage('en')" 
+              [color]="currentLang === 'en' ? 'accent' : ''">
+        English
+      </button>
+      <button mat-raised-button 
+              (click)="switchLanguage('ar')" 
+              [color]="currentLang === 'ar' ? 'accent' : ''">
+        عربي
+      </button>
+    </div>
+  </div>
+</mat-toolbar>>

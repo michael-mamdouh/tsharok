@@ -1,0 +1,23 @@
+<div class="messages-container">
+  <h1><app-translate key="messages.title"></app-translate></h1>
+
+  <div *ngIf="loading" class="loading-container">
+    <mat-spinner diameter="40"></mat-spinner>
+  </div>
+
+  <mat-card *ngIf="!loading">
+    <mat-list>
+      <mat-list-item *ngFor="let message of messages">
+        <div matListItemTitle>{{ message.subject }}</div>
+        <div matListItemLine>{{ message.sender }}</div>
+        <div matListItemLine>{{ message.date | date }}</div>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+
+      <div *ngIf="messages.length === 0" class="no-messages">
+        <mat-icon>inbox</mat-icon>
+        <p><app-translate key="messages.noMessages"></app-translate></p>
+      </div>
+    </mat-list>
+  </mat-card>
+</div>

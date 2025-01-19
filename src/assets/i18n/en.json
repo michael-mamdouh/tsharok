@@ -1,0 +1,82 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "news": "News",
+    "login": "Login",
+    "signup": "Sign Up",
+    "profile": "My Profile",
+    "userProfile": "User Profile",
+    "companyProfile": "Company Profile",
+    "messages": "Messages"
+  },
+  "home": {
+    "title": "Welcome to Our Website",
+    "description": "This is the homepage of our Angular application."
+  },
+  "about": {
+    "title": "About Us",
+    "description": "We are a passionate team dedicated to creating amazing web applications."
+  },
+  "profile": {
+    "freelancer": {
+      "welcome": "Welcome to Your Freelancer Profile",
+      "description": "Manage your freelancer profile, view opportunities, and track your progress."
+    },
+    "company": {
+      "welcome": "Welcome to Your Company Profile",
+      "description": "Manage your company profile, post jobs, and find talented freelancers."
+    }
+  },
+  "messages": {
+    "title": "Messages",
+    "noMessages": "No new messages",
+    "loadMore": "Load More",
+    "from": "From",
+    "date": "Date",
+    "subject": "Subject",
+    "loading": "Loading..."
+  },
+  "news": {
+    "title": "Latest News",
+    "readMore": "Read More",
+    "loadMore": "Load More",
+    "backToList": "Back to List",
+    "loading": "Loading..."
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "welcomeTo": "Welcome to",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "passwordRequired": "Password is required",
+      "passwordMinLength": "Password must be at least 6 characters",
+      "submit": "Login",
+      "dontHaveAccount": "Don't have an account?",
+      "createAccount": "Create Account"
+    },
+    "forgotPassword": {
+      "title": "Forgot Password",
+      "description": "Enter your email and we'll send you a reset code",
+      "email": "Email",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email",
+      "submit": "Send",
+      "backToLogin": "Back to Login"
+    },
+    "registrationType": {
+      "title": "Choose Registration Type",
+      "company": "Company",
+      "freelancer": "Freelancer",
+      "name": "Name",
+      "namePlaceholder": "Enter your name",
+      "nameRequired": "Name is required",
+      "next": "Next"
+    }
+  }
+}

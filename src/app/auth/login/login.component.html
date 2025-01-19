@@ -1,0 +1,100 @@
+<div class="auth-container-wrapper">
+  <button mat-icon-button class="back-button" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+    <p style="color:red">test</p> 
+  </button>
+  <div class="auth-container">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-5">
+          <div class="auth-container__img-wrapper">
+            <h1><app-translate key="auth.login.welcomeTo"></app-translate></h1>
+            <img src="../../../assets/images/auth-logo.png" alt="logo" />
+          </div>
+        </div>
+        <div class="col-7">
+          <div class="auth-container__form-wrapper">
+            <h2><app-translate key="auth.login.title"></app-translate></h2>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div>
+                <div class="form_item">
+                  <label for="email">
+                    <app-translate key="auth.login.email"></app-translate>
+                  </label>
+                  <mat-form-field appearance="outline">
+                    <mat-icon matPrefix>mail</mat-icon>
+                    <input
+                      matInput
+                      type="email"
+                      formControlName="email"
+                      [placeholder]="getTranslatedPlaceholder('auth.login.emailPlaceholder')"
+                    />
+                    <mat-error *ngIf="loginForm.get('email')?.errors?.['required']">
+                      <app-translate key="auth.login.emailRequired"></app-translate>
+                    </mat-error>
+                    <mat-error *ngIf="loginForm.get('email')?.errors?.['email']">
+                      <app-translate key="auth.login.emailInvalid"></app-translate>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="form_item">
+                  <label for="password">
+                    <app-translate key="auth.login.password"></app-translate>
+                  </label>
+                  <mat-form-field appearance="outline">
+                    <mat-icon matPrefix>lock</mat-icon>
+                    <button
+                      mat-icon-button
+                      matSuffix
+                      type="button"
+                      (click)="clickEvent($event)"
+                      [attr.aria-label]="'Hide password'"
+                      [attr.aria-pressed]="hide()"
+                    >
+                      <mat-icon>{{
+                        hide() ? "visibility_off" : "visibility"
+                      }}</mat-icon>
+                    </button>
+                    <input
+                      matInput
+                      [type]="hide() ? 'password' : 'text'"
+                      formControlName="password"
+                      [placeholder]="getTranslatedPlaceholder('auth.login.passwordPlaceholder')"
+                    />
+                    <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">
+                      <app-translate key="auth.login.passwordRequired"></app-translate>
+                    </mat-error>
+                    <mat-error *ngIf="loginForm.get('password')?.errors?.['minlength']">
+                      <app-translate key="auth.login.passwordMinLength"></app-translate>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div>
+                <a routerLink="/forgot-password" class="generic-underline-button">
+                  <app-translate key="auth.forgotPassword.title"></app-translate>
+                </a>
+              </div>
+              <button
+                mat-raised-button
+                color="primary"
+                type="submit"
+                class="generic-submit-button"
+              >
+                <app-translate key="auth.login.submit"></app-translate>
+              </button>
+              <div class="create-account-button">
+                <span>
+                  <app-translate key="auth.login.dontHaveAccount"></app-translate>
+                  <a routerLink="/signup">
+                    <app-translate key="auth.login.createAccount"></app-translate>
+                  </a>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
