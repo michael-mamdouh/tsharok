@@ -119,13 +119,13 @@
       "passwordsMismatch": "كلمات المرور غير متطابقة"
     },
     "otp": {
-      "conformOtp": "Conform OTP",
-      "welcomeTo": "Welcome to",
-      "otpSend":"OTP has been sent to your email",
-      "didntReceive": "Didn't receive the code?",
-      "resend": "Resend",
-      "next": "Next",
-      "otpExpired": "OTP has expired"
+      "confirmOtp": "أدخل رمز التحقق الذي تلقيته على هاتفك المحمول",
+      "welcomeTo": "أهلا في",
+      "otpSend":"لقد تم إرسال كلمة مرور لمرة واحدة (OTP) إلى رقم هاتفك المحمول.",
+      "didntReceive": "لم أتلقى الرسالة!",
+      "resend": "إعادة إرسال",
+      "next": "التالي",
+      "otpExpired": "انتهت صلاحية OTP!"
     }
   }
 }

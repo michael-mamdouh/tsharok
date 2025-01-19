@@ -119,7 +119,7 @@
       "passwordsMismatch": "Passwords do not match"
     },
     "otp": {
-      "conformOtp": "Conform OTP",
+      "confirmOtp": "Confirm OTP",
       "welcomeTo": "Welcome to",
       "otpSend":"OTP has been sent to your email",
       "didntReceive": "Didn't receive the code?",

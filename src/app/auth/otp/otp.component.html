@@ -1,44 +1,10 @@
-<!-- <div class="auth-container">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title><app-translate key="auth.otp.title"></app-translate></mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p class="otp-message">
-        <app-translate key="auth.otp.message"></app-translate>
-        <strong>{{ email }}</strong>
-      </p>
-      
-      <form [formGroup]="otpForm" (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="outline">
-          <mat-label><app-translate key="auth.otp.code"></app-translate></mat-label>
-          <input matInput type="text" formControlName="otp" maxlength="6">
-          <mat-error *ngIf="otpForm.get('otp')?.errors?.['required']">
-            <app-translate key="auth.otp.required"></app-translate>
-          </mat-error>
-          <mat-error *ngIf="otpForm.get('otp')?.errors?.['minlength'] || otpForm.get('otp')?.errors?.['maxlength']">
-            <app-translate key="auth.otp.invalid"></app-translate>
-          </mat-error>
-        </mat-form-field>
-
-        <button mat-raised-button color="primary" type="submit" [disabled]="!otpForm.valid">
-          <app-translate key="auth.otp.verify"></app-translate>
-        </button>
-        
-        <button mat-button type="button" (click)="resendOtp()">
-          <app-translate key="auth.otp.resend"></app-translate>
-        </button>
-      </form>
-    </mat-card-content>
-  </mat-card>
-</div> -->
 <div class="auth-container-wrapper">
   <div class="auth-container">
     <div class="container-fluid">
       <div class="row">
         <div class="col-5">
           <div class="auth-container__img-wrapper">
-            <h1><app-translate key="auth.login.welcomeTo"></app-translate></h1>
+            <h1><app-translate key="auth.otp.welcomeTo"></app-translate></h1>
             <img src="../../../assets/images/auth-logo.png" alt="logo" />
           </div>
         </div>
@@ -52,8 +18,90 @@
               >
                 <mat-icon>{{ getDirectionIcon() }}</mat-icon>
               </button>
-              <h2><app-translate key="auth.login.title"></app-translate></h2>
+              <h2><app-translate key="auth.otp.confirmOtp"></app-translate></h2>
+              <h3>
+                <app-translate key="auth.otp.otpSend"></app-translate>
+              </h3>
+              <form [formGroup]="otpForm" (ngSubmit)="onSubmit()">
+                <div class="otp-inputs" [formGroup]="otpInputs">
+                  <input
+                    #digit1
+                    type="text"
+                    maxlength="1"
+                    formControlName="digit1"
+                    (input)="onDigitInput($event, digit2)"
+                    (keydown.backspace)="onDigitInput($event)"
+                  />
+                  <input
+                    #digit2
+                    type="text"
+                    maxlength="1"
+                    formControlName="digit2"
+                    (input)="onDigitInput($event, digit3, digit1)"
+                    (keydown.backspace)="onDigitInput($event, undefined, digit1)"
+                  />
+                  <input
+                    #digit3
+                    type="text"
+                    maxlength="1"
+                    formControlName="digit3"
+                    (input)="onDigitInput($event, digit4, digit2)"
+                    (keydown.backspace)="onDigitInput($event, undefined, digit2)"
+                  />
+                  <input
+                    #digit4
+                    type="text"
+                    maxlength="1"
+                    formControlName="digit4"
+                    (input)="onDigitInput($event, digit5, digit3)"
+                    (keydown.backspace)="onDigitInput($event, undefined, digit3)"
+                  />
+                  <input
+                    #digit5
+                    type="text"
+                    maxlength="1"
+                    formControlName="digit5"
+                    (input)="onDigitInput($event, digit6, digit4)"
+                    (keydown.backspace)="onDigitInput($event, undefined, digit4)"
+                  />
+                  <input
+                    #digit6
+                    type="text"
+                    maxlength="1"
+                    formControlName="digit6"
+                    (input)="onDigitInput($event, undefined, digit5)"
+                    (keydown.backspace)="onDigitInput($event, undefined, digit5)"
+                  />
+                </div>
+                <div class="resend-section">
+                  <p class="didnt-receive">
+                    <app-translate key="auth.otp.didntReceive"></app-translate>
+                  </p>
+                  <button 
+                    mat-button 
+                    type="button" 
+                    (click)="resendOtp()" 
+                    [disabled]="resendDisabled"
+                    class="resend-button"
+                    *ngIf="!resendDisabled"
+                  >
+                    <app-translate key="auth.otp.resend"></app-translate>
+                  </button>
+                  <span *ngIf="resendDisabled">{{ timeLeft }}s</span>
 
+                </div>
+                <button
+                  mat-raised-button
+                  color="primary"
+                  type="submit"
+                  [disabled]="!otpForm.valid"
+                  class="generic-submit-button"
+                >
+                  <app-translate key="auth.otp.next"></app-translate>
+                </button>
+
+
+              </form>
             </div>
           </div>
         </div>
