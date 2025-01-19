@@ -25,7 +25,7 @@ export class AppComponent {
   constructor(private router: Router) {
     this.router.events.subscribe(() => {
       // const currentRoute = this.router.url;
-      const excludeFromHeader = window.location.href.includes("/login");
+      const excludeFromHeader = window.location.href.includes("/login") ||window.location.href.includes("/register");
       this.showHeader = !excludeFromHeader; // Hide header on login page
     });
   }

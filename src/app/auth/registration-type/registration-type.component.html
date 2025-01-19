@@ -1,0 +1,111 @@
+<div class="auth-container-wrapper">
+  <div class="auth-container">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-5">
+          <div class="auth-container__img-wrapper">
+            <h1>
+              <app-translate
+                key="auth.registrationType.welcomeTo"
+              ></app-translate>
+            </h1>
+            <img src="../../../assets/images/auth-logo.png" alt="logo" />
+          </div>
+        </div>
+        <div class="col-7">
+          <div class="auth-container__form-wrapper">
+            <div class="auth--smaller-size">
+              <button
+                mat-icon-button
+                class="form-back-button"
+                (click)="goBack()"
+              >
+                <mat-icon>{{ getDirectionIcon() }}</mat-icon>
+              </button>
+              <h2>
+                <app-translate
+                  key="auth.registrationType.createAccount"
+                ></app-translate>
+              </h2>
+              <div class="registrationType__wrapper">
+                <div class="type-buttons">
+                  <div
+                    class="type-card"
+                    [class.typeSelected]="selectedType === 'freelancer'"
+                    (click)="selectType('freelancer')"
+                  >
+                    <div class="img-wrapper">
+                      <img
+                        src="https://picsum.photos/id/230/200/150"
+                        alt="Freelancer"
+                      />
+                    </div>
+                    <h3>
+                      <app-translate
+                        key="auth.registrationType.freelancer"
+                      ></app-translate>
+                    </h3>
+                  </div>
+                  <div
+                    class="type-card"
+                    [class.typeSelected]="selectedType === 'company'"
+                    (click)="selectType('company')"
+                  >
+                    <div class="img-wrapper">
+                      <img
+                        src="https://picsum.photos/id/230/200/150"
+                        alt="Company"
+                      />
+                    </div>
+                    <h3>
+                      <app-translate
+                        key="auth.registrationType.company"
+                      ></app-translate>
+                    </h3>
+                  </div>
+                </div>
+
+                <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+
+                      <div class="form_item">
+                        <label for="name">
+                            <app-translate key="auth.registrationType.name"></app-translate>
+                          </label>
+                          <mat-form-field appearance="outline">
+                            <input
+                              matInput
+                              formControlName="name"
+                              [placeholder]="
+                                getTranslatedText(
+                                  'auth.registrationType.namePlaceholder'
+                                )
+                              "
+                            />
+                            <mat-error
+                              *ngIf="registrationForm.get('name')?.errors?.['required']"
+                            >
+                              <app-translate
+                                key="auth.registrationType.nameRequired"
+                              ></app-translate>
+                            </mat-error>
+                          </mat-form-field>
+                      </div>
+                  <button
+                    mat-raised-button
+                    color="primary"
+                    type="submit"
+                    class="generic-submit-button"
+                  >
+                    <app-translate
+                      key="auth.registrationType.next"
+                    ></app-translate>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

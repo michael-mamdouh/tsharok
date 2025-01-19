@@ -85,11 +85,13 @@
       "backToLogin": "Back to Login"
     },
     "registrationType": {
+      "welcomeTo":"Welcome to",
+      "createAccount": "Create Account",
       "title": "Choose Registration Type",
       "company": "Company",
       "freelancer": "Freelancer",
       "name": "Name",
-      "namePlaceholder": "Enter your name",
+      "namePlaceholder": "Enter name",
       "nameRequired": "Name is required",
       "next": "Next"
     }

@@ -85,11 +85,13 @@
       "backToLogin": "العودة لتسجيل الدخول"
     },
     "registrationType": {
+      "welcomeTo":"أهلا بك في",
+      "createAccount": "إنشاء حساب",
       "title": "اختر نوع التسجيل",
       "company": "شركة",
-      "freelancer": "مستقل",
+      "freelancer": "موظف حر",
       "name": "الاسم",
-      "namePlaceholder": "أدخل اسمك",
+      "namePlaceholder": "أدخل الاسم",
       "nameRequired": "الاسم مطلوب",
       "next": "التالي"
     }

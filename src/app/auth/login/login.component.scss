@@ -39,6 +39,9 @@
             min-height: calc(100vh - 32px);
             flex-direction: column;
             padding: 50px 100px;
+            .auth--smaller-size{
+                max-width: 600px;
+            }
         }
     }
     h1 {
