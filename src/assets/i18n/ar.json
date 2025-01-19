@@ -99,9 +99,9 @@
       "title": "إنشاء حساب",
       "welcomeTo":"أهلا بك في",
       "createAccount": "إنشاء حساب",
-      "termsAndConditions": "أوافق على الشروط والأحكام",
+      "termsAndConditions": "الموافقة على الشروط والأحكام والخصوصية والسياسة",
       "termsRequired": "يجب الموافقة على الشروط والأحكام",
-      "googleLogin": "المتابعة باستخدام جوجل",
+      "googleLogin": "سجل عبر Google ",
       "email": "البريد الإلكتروني",
       "emailPlaceholder": "أدخل بريدك الإلكتروني",
       "emailRequired": "البريد الإلكتروني مطلوب",
@@ -115,7 +115,8 @@
       "confirmPasswordRequired": "يجب تأكيد كلمة المرور",
       "confirmPasswordPlaceholder": "تأكيد كلمة المرور",
       "confirmPassword": "تأكيد كلمة المرور",
-      "login": "تسجيل الدخول"
+      "login": "تسجيل الدخول",
+      "passwordsMismatch": "كلمات المرور غير متطابقة"
     }
   }
 }

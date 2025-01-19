@@ -107,7 +107,7 @@
       "passwordRequired": "Password is required",
       "passwordMinLength": "Password must be at least 6 characters",
       "createAccount": "Create Account",
-      "termsAndConditions": "I agree to the Terms and Conditions",
+      "termsAndConditions": "Agree to the Terms and Conditions, Privacy and Policy",
       "termsRequired": "You must accept the Terms and Conditions",
       "googleLogin": "Continue with Google",
       "submit": "Create Account",
@@ -115,7 +115,8 @@
       "confirmPasswordRequired": "Password confirmation is required",
       "confirmPasswordPlaceholder": "Confirm your password",
       "confirmPassword": "Confirm Password",
-      "login": "Login"
+      "login": "Login",
+      "passwordsMismatch": "Passwords do not match"
     }
   }
 }

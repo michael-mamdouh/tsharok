@@ -11,7 +11,11 @@
         <div class="col-7">
           <div class="auth-container__form-wrapper">
             <div class="auth--smaller-size">
-              <button mat-icon-button class="form-back-button" (click)="goBack()">
+              <button
+                mat-icon-button
+                class="form-back-button"
+                (click)="goBack()"
+              >
                 <mat-icon>{{ getDirectionIcon() }}</mat-icon>
               </button>
               <h2><app-translate key="auth.signup.title"></app-translate></h2>
@@ -26,13 +30,23 @@
                       matInput
                       type="email"
                       formControlName="email"
-                      [placeholder]="getTranslatedText('auth.signup.emailPlaceholder')"
+                      [placeholder]="
+                        getTranslatedText('auth.signup.emailPlaceholder')
+                      "
                     />
-                    <mat-error *ngIf="signupForm.get('email')?.errors?.['required']">
-                      <app-translate key="auth.signup.emailRequired"></app-translate>
+                    <mat-error
+                      *ngIf="signupForm.get('email')?.errors?.['required']"
+                    >
+                      <app-translate
+                        key="auth.signup.emailRequired"
+                      ></app-translate>
                     </mat-error>
-                    <mat-error *ngIf="signupForm.get('email')?.errors?.['email']">
-                      <app-translate key="auth.signup.emailInvalid"></app-translate>
+                    <mat-error
+                      *ngIf="signupForm.get('email')?.errors?.['email']"
+                    >
+                      <app-translate
+                        key="auth.signup.emailInvalid"
+                      ></app-translate>
                     </mat-error>
                   </mat-form-field>
                 </div>
@@ -43,63 +57,136 @@
                   </label>
                   <mat-form-field appearance="outline">
                     <mat-icon matPrefix>lock_outlined</mat-icon>
+                    <button
+                    mat-icon-button
+                    matSuffix
+                    type="button"
+                    (click)="clickEvent($event)"
+                    [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide()"
+                  >
+                    <mat-icon>{{
+                      hide()
+                        ? "visibility_off_outlined"
+                        : "visibility_outlined"
+                    }}</mat-icon>
+                  </button>
                     <input
                       matInput
-                      type="password"
+                      [type]="hide() ? 'password' : 'text'"
                       formControlName="password"
-                      [placeholder]="getTranslatedText('auth.signup.passwordPlaceholder')"
+                      [placeholder]="
+                        getTranslatedText('auth.signup.passwordPlaceholder')
+                      "
                     />
-                    <mat-error *ngIf="signupForm.get('password')?.errors?.['required']">
-                      <app-translate key="auth.signup.passwordRequired"></app-translate>
+                    <mat-error
+                      *ngIf="signupForm.get('password')?.errors?.['required']"
+                    >
+                      <app-translate
+                        key="auth.signup.passwordRequired"
+                      ></app-translate>
                     </mat-error>
-                    <mat-error *ngIf="signupForm.get('password')?.errors?.['minlength']">
-                      <app-translate key="auth.signup.passwordMinLength"></app-translate>
+                    <mat-error
+                      *ngIf="signupForm.get('password')?.errors?.['minlength']"
+                    >
+                      <app-translate
+                        key="auth.signup.passwordMinLength"
+                      ></app-translate>
                     </mat-error>
                   </mat-form-field>
                 </div>
 
                 <div class="form_item">
                   <label for="confirmPassword">
-                    <app-translate key="auth.signup.confirmPassword"></app-translate>
+                    <app-translate
+                      key="auth.signup.confirmPassword"
+                    ></app-translate>
                   </label>
                   <mat-form-field appearance="outline">
                     <mat-icon matPrefix>lock_outlined</mat-icon>
+                    <button
+                      mat-icon-button
+                      matSuffix
+                      type="button"
+                      (click)="confirmPasswordClick($event)"
+                      [attr.aria-label]="'Hide password'"
+                      [attr.aria-pressed]="hideConfirmPassword()"
+                    >
+                      <mat-icon>{{
+                        hideConfirmPassword()
+                          ? "visibility_off_outlined"
+                          : "visibility_outlined"
+                      }}</mat-icon>
+                    </button>
                     <input
                       matInput
-                      type="password"
+                      [type]="hideConfirmPassword() ? 'password' : 'text'"
                       formControlName="confirmPassword"
-                      [placeholder]="getTranslatedText('auth.signup.confirmPasswordPlaceholder')"
+                      [placeholder]="
+                        getTranslatedText(
+                          'auth.signup.confirmPasswordPlaceholder'
+                        )
+                      "
                     />
-                    <mat-error *ngIf="signupForm.get('confirmPassword')?.errors?.['required']">
-                      <app-translate key="auth.signup.confirmPasswordRequired"></app-translate>
+                    <mat-error
+                      *ngIf="signupForm.get('confirmPassword')?.errors?.['required']"
+                    >
+                      <app-translate
+                        key="auth.signup.confirmPasswordRequired"
+                      ></app-translate>
                     </mat-error>
-                    <mat-error *ngIf="signupForm.errors?.['mismatch']">
-                      <app-translate key="auth.signup.passwordsMismatch"></app-translate>
+                    <mat-error *ngIf="signupForm.get('confirmPassword')?.value != signupForm.get('password')?.value">
+                      <app-translate
+                        key="auth.signup.passwordsMismatch"
+                      ></app-translate>
                     </mat-error>
                   </mat-form-field>
                 </div>
 
                 <div class="form_item terms-checkbox">
                   <mat-checkbox formControlName="terms" color="primary">
-                    <app-translate key="auth.signup.termsAndConditions"></app-translate>
+                    <app-translate
+                      key="auth.signup.termsAndConditions"
+                    ></app-translate>
                   </mat-checkbox>
-                  <mat-error *ngIf="signupForm.get('terms')?.errors?.['required']" class="terms-error">
-                    <app-translate key="auth.signup.termsRequired"></app-translate>
+                  <mat-error
+                  *ngIf="signupForm.get('terms')?.errors?.['required'] && signupForm.get('terms')?.touched"
+                  class="terms-error"
+                  >
+                    <app-translate
+                      key="auth.signup.termsRequired"
+                    ></app-translate>
                   </mat-error>
                 </div>
 
-                <button mat-raised-button color="primary" type="submit" class="generic-submit-button">
+                <button
+                  mat-raised-button
+                  color="primary"
+                  type="submit"
+                  class="generic-submit-button"
+                >
                   <app-translate key="auth.signup.submit"></app-translate>
                 </button>
 
-                <button mat-stroked-button type="button" class="google-login-button" (click)="loginWithGoogle()">
-                  <img src="assets/images/google-icon.svg" alt="Google" class="google-icon" />
+                <button
+                  mat-stroked-button
+                  type="button"
+                  class="google-login-button"
+                  (click)="loginWithGoogle()"
+                >
                   <app-translate key="auth.signup.googleLogin"></app-translate>
+                  <img
+                  src="../../../assets/images/google-icon.svg"
+                  alt="Google"
+                  class="google-icon"
+                />
                 </button>
 
                 <div class="create-account-button">
                   <span>
-                    <app-translate key="auth.signup.alreadyHaveAccount"></app-translate>
+                    <app-translate
+                      key="auth.signup.alreadyHaveAccount"
+                    ></app-translate>
                     <a routerLink="/login">
                       <app-translate key="auth.signup.login"></app-translate>
                     </a>

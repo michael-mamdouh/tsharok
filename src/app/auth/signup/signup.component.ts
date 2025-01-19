@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TranslateComponent } from '../../components/translate/translate.component';
 import { LanguageService } from '../../services/language.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-signup',
@@ -27,9 +28,11 @@ import { LanguageService } from '../../services/language.service';
     TranslateComponent
   ],
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  styleUrls:['../login/login.component.scss', '../registration-type/registration-type.component.scss','./signup.component.scss']
 })
 export class SignupComponent {
+  hide = signal(true);
+  hideConfirmPassword = signal(true);
   signupForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
@@ -44,7 +47,8 @@ export class SignupComponent {
     private fb: FormBuilder,
     private router: Router,
     private langService: LanguageService,
-    private location: Location
+    private location: Location,
+    private snackBar: MatSnackBar,
   ) {
     const state = history.state;
     this.registrationType = state.type;
@@ -78,6 +82,20 @@ export class SignupComponent {
           name: this.name
         }
       });
+    }else{
+      if(this.signupForm.get('password')?.value !== this.signupForm.get('confirmPassword')?.value){
+        this.snackBar.open('Passwords do not match', 'Close', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+        });
+      }else if(this.signupForm.get('terms')?.value === false){
+        this.snackBar.open('Please accept terms and conditions', 'Close', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+        });
+      }
     }
   }
 
@@ -85,7 +103,14 @@ export class SignupComponent {
     // Implement Google login logic here
     console.log('Google login clicked');
   }
-
+  clickEvent(event: MouseEvent) {
+    this.hide.set(!this.hide());
+    event.stopPropagation();
+  }
+  confirmPasswordClick(event: MouseEvent) {
+    this.hideConfirmPassword.set(!this.hideConfirmPassword());
+    event.stopPropagation();
+  }
   goBack() {
     this.location.back();
   }
