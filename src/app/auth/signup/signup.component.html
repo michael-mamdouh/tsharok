@@ -1,33 +1,115 @@
-<div class="auth-container">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Sign Up</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="outline">
-          <mat-label>Email</mat-label>
-          <input matInput type="email" formControlName="email">
-          <mat-error *ngIf="signupForm.get('email')?.errors?.['required']">Email is required</mat-error>
-          <mat-error *ngIf="signupForm.get('email')?.errors?.['email']">Please enter a valid email</mat-error>
-        </mat-form-field>
+<div class="auth-container-wrapper">
+  <div class="auth-container">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-5">
+          <div class="auth-container__img-wrapper">
+            <h1><app-translate key="auth.signup.welcomeTo"></app-translate></h1>
+            <img src="../../../assets/images/auth-logo.png" alt="logo" />
+          </div>
+        </div>
+        <div class="col-7">
+          <div class="auth-container__form-wrapper">
+            <div class="auth--smaller-size">
+              <button mat-icon-button class="form-back-button" (click)="goBack()">
+                <mat-icon>{{ getDirectionIcon() }}</mat-icon>
+              </button>
+              <h2><app-translate key="auth.signup.title"></app-translate></h2>
+              <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                <div class="form_item">
+                  <label for="email">
+                    <app-translate key="auth.signup.email"></app-translate>
+                  </label>
+                  <mat-form-field appearance="outline">
+                    <mat-icon matPrefix>mail_outlined</mat-icon>
+                    <input
+                      matInput
+                      type="email"
+                      formControlName="email"
+                      [placeholder]="getTranslatedText('auth.signup.emailPlaceholder')"
+                    />
+                    <mat-error *ngIf="signupForm.get('email')?.errors?.['required']">
+                      <app-translate key="auth.signup.emailRequired"></app-translate>
+                    </mat-error>
+                    <mat-error *ngIf="signupForm.get('email')?.errors?.['email']">
+                      <app-translate key="auth.signup.emailInvalid"></app-translate>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Password</mat-label>
-          <input matInput type="password" formControlName="password">
-          <mat-error *ngIf="signupForm.get('password')?.errors?.['required']">Password is required</mat-error>
-          <mat-error *ngIf="signupForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters</mat-error>
-        </mat-form-field>
+                <div class="form_item">
+                  <label for="password">
+                    <app-translate key="auth.signup.password"></app-translate>
+                  </label>
+                  <mat-form-field appearance="outline">
+                    <mat-icon matPrefix>lock_outlined</mat-icon>
+                    <input
+                      matInput
+                      type="password"
+                      formControlName="password"
+                      [placeholder]="getTranslatedText('auth.signup.passwordPlaceholder')"
+                    />
+                    <mat-error *ngIf="signupForm.get('password')?.errors?.['required']">
+                      <app-translate key="auth.signup.passwordRequired"></app-translate>
+                    </mat-error>
+                    <mat-error *ngIf="signupForm.get('password')?.errors?.['minlength']">
+                      <app-translate key="auth.signup.passwordMinLength"></app-translate>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Confirm Password</mat-label>
-          <input matInput type="password" formControlName="confirmPassword">
-          <mat-error *ngIf="signupForm.get('confirmPassword')?.errors?.['required']">Please confirm your password</mat-error>
-          <mat-error *ngIf="signupForm.errors?.['mismatch']">Passwords do not match</mat-error>
-        </mat-form-field>
+                <div class="form_item">
+                  <label for="confirmPassword">
+                    <app-translate key="auth.signup.confirmPassword"></app-translate>
+                  </label>
+                  <mat-form-field appearance="outline">
+                    <mat-icon matPrefix>lock_outlined</mat-icon>
+                    <input
+                      matInput
+                      type="password"
+                      formControlName="confirmPassword"
+                      [placeholder]="getTranslatedText('auth.signup.confirmPasswordPlaceholder')"
+                    />
+                    <mat-error *ngIf="signupForm.get('confirmPassword')?.errors?.['required']">
+                      <app-translate key="auth.signup.confirmPasswordRequired"></app-translate>
+                    </mat-error>
+                    <mat-error *ngIf="signupForm.errors?.['mismatch']">
+                      <app-translate key="auth.signup.passwordsMismatch"></app-translate>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
 
-        <button mat-raised-button color="primary" type="submit" [disabled]="!signupForm.valid">Sign Up</button>
-      </form>
-    </mat-card-content>
-  </mat-card>
+                <div class="form_item terms-checkbox">
+                  <mat-checkbox formControlName="terms" color="primary">
+                    <app-translate key="auth.signup.termsAndConditions"></app-translate>
+                  </mat-checkbox>
+                  <mat-error *ngIf="signupForm.get('terms')?.errors?.['required']" class="terms-error">
+                    <app-translate key="auth.signup.termsRequired"></app-translate>
+                  </mat-error>
+                </div>
+
+                <button mat-raised-button color="primary" type="submit" class="generic-submit-button">
+                  <app-translate key="auth.signup.submit"></app-translate>
+                </button>
+
+                <button mat-stroked-button type="button" class="google-login-button" (click)="loginWithGoogle()">
+                  <img src="assets/images/google-icon.svg" alt="Google" class="google-icon" />
+                  <app-translate key="auth.signup.googleLogin"></app-translate>
+                </button>
+
+                <div class="create-account-button">
+                  <span>
+                    <app-translate key="auth.signup.alreadyHaveAccount"></app-translate>
+                    <a routerLink="/login">
+                      <app-translate key="auth.signup.login"></app-translate>
+                    </a>
+                  </span>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -4,44 +4,90 @@
   background-color: #1976d2;
   position: relative;
   min-height: 100vh;
+}
 
-  .auth-container {
-    position: relative;
-    z-index: 2;
-    
-    .auth-container__img-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      min-height: calc(100vh - 32px);
-      flex-direction: column;
-    }
+.form-back-button {
+  width: 56px;
+  height: 56px;
+  background-color: rgba(180, 185, 201, 0.2);
+  border-radius: 10px !important;
+  margin-bottom: 30px;
+  color: #807d7e;
+  
+  ::ng-deep .mat-mdc-button-persistent-ripple {
+    border-radius: 10px;
+  }
+}
 
-    .auth-container__form-wrapper {
-      background-color: white;
-      margin-top: 16px;
-      margin-bottom: 16px;
-      border-radius: 10px;
-      box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
-      display: flex;
-      color: white;
-      min-height: calc(100vh - 32px);
-      flex-direction: column;
-      padding: 60px 100px;
-    }
+.auth-container {
+  position: relative;
+  z-index: 2;
+  
+  .auth-container__img-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    min-height: calc(100vh - 32px);
+    flex-direction: column;
   }
 
-  h1 {
-    font-weight: 900;
-    font-size: 56px;
-    margin-bottom: 44px;
-  }
+  .auth-container__form-wrapper {
+    background-color: white;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
+    display: flex;
+    color: white;
+    min-height: calc(100vh - 32px);
+    flex-direction: column;
+    padding: 50px 100px;
 
-  h2 {
-    color: #807D7E;
-    font-size: 32px;
-    font-weight: 500;
-    margin-bottom: 24px;
+    .auth--smaller-size {
+      max-width: 600px;
+    }
+  }
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 56px;
+  margin-bottom: 44px;
+}
+
+h2 {
+  color: #807d7e;
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.terms-checkbox {
+  margin: 16px 0;
+  
+  ::ng-deep .mat-mdc-checkbox-label {
+    color: #666;
+  }
+}
+
+.terms-error {
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+.google-login-button {
+  width: 100%;
+  margin-top: 16px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #ddd;
+  
+  .google-icon {
+    width: 24px;
+    height: 24px;
   }
 }

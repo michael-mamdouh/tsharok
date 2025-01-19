@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TranslateComponent } from '../../components/translate/translate.component';
 import { LanguageService } from '../../services/language.service';
 
@@ -16,181 +17,24 @@ import { LanguageService } from '../../services/language.service';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    RouterLink,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatCardModule,
     MatIconModule,
+    MatCheckboxModule,
     TranslateComponent
   ],
-  template: `
-    <div class="auth-container-wrapper">
-      <button mat-icon-button class="back-button" (click)="goBack()">
-        <mat-icon>arrow_back</mat-icon>
-      </button>
-      
-      <div class="auth-container">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-5">
-              <div class="auth-container__img-wrapper">
-                <h1><app-translate key="auth.signup.welcomeTo"></app-translate></h1>
-                <img src="../../../assets/images/auth-logo.png" alt="logo" />
-              </div>
-            </div>
-            <div class="col-7">
-              <div class="auth-container__form-wrapper">
-                <h2><app-translate key="auth.signup.title"></app-translate></h2>
-                <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-                  <div class="form_item">
-                    <label for="email">
-                      <app-translate key="auth.signup.email"></app-translate>
-                    </label>
-                    <mat-form-field appearance="outline">
-                      <mat-icon matPrefix>mail</mat-icon>
-                      <input
-                        matInput
-                        type="email"
-                        formControlName="email"
-                        [placeholder]="getTranslatedText('auth.signup.emailPlaceholder')"
-                      />
-                      <mat-error *ngIf="signupForm.get('email')?.errors?.['required']">
-                        <app-translate key="auth.signup.emailRequired"></app-translate>
-                      </mat-error>
-                      <mat-error *ngIf="signupForm.get('email')?.errors?.['email']">
-                        <app-translate key="auth.signup.emailInvalid"></app-translate>
-                      </mat-error>
-                    </mat-form-field>
-                  </div>
-
-                  <div class="form_item">
-                    <label for="password">
-                      <app-translate key="auth.signup.password"></app-translate>
-                    </label>
-                    <mat-form-field appearance="outline">
-                      <mat-icon matPrefix>lock</mat-icon>
-                      <input
-                        matInput
-                        type="password"
-                        formControlName="password"
-                        [placeholder]="getTranslatedText('auth.signup.passwordPlaceholder')"
-                      />
-                      <mat-error *ngIf="signupForm.get('password')?.errors?.['required']">
-                        <app-translate key="auth.signup.passwordRequired"></app-translate>
-                      </mat-error>
-                      <mat-error *ngIf="signupForm.get('password')?.errors?.['minlength']">
-                        <app-translate key="auth.signup.passwordMinLength"></app-translate>
-                      </mat-error>
-                    </mat-form-field>
-                  </div>
-
-                  <div class="form_item">
-                    <label for="confirmPassword">
-                      <app-translate key="auth.signup.confirmPassword"></app-translate>
-                    </label>
-                    <mat-form-field appearance="outline">
-                      <mat-icon matPrefix>lock</mat-icon>
-                      <input
-                        matInput
-                        type="password"
-                        formControlName="confirmPassword"
-                        [placeholder]="getTranslatedText('auth.signup.confirmPasswordPlaceholder')"
-                      />
-                      <mat-error *ngIf="signupForm.get('confirmPassword')?.errors?.['required']">
-                        <app-translate key="auth.signup.confirmPasswordRequired"></app-translate>
-                      </mat-error>
-                      <mat-error *ngIf="signupForm.errors?.['mismatch']">
-                        <app-translate key="auth.signup.passwordsMismatch"></app-translate>
-                      </mat-error>
-                    </mat-form-field>
-                  </div>
-
-                  <button mat-raised-button color="primary" type="submit" class="generic-submit-button">
-                    <app-translate key="auth.signup.submit"></app-translate>
-                  </button>
-
-                  <div class="create-account-button">
-                    <span>
-                      <app-translate key="auth.signup.alreadyHaveAccount"></app-translate>
-                      <a routerLink="/login">
-                        <app-translate key="auth.signup.login"></app-translate>
-                      </a>
-                    </span>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  `,
-  styles: [`
-    .auth-container-wrapper {
-      background-color: #1976d2;
-      position: relative;
-      min-height: 100vh;
-    }
-
-    .back-button {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      z-index: 10;
-      color: white;
-      
-      [dir="rtl"] & {
-        left: auto;
-        right: 20px;
-      }
-    }
-
-    .auth-container {
-      position: relative;
-      z-index: 2;
-      
-      .auth-container__img-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        min-height: calc(100vh - 32px);
-        flex-direction: column;
-      }
-
-      .auth-container__form-wrapper {
-        background-color: white;
-        margin-top: 16px;
-        margin-bottom: 16px;
-        border-radius: 10px;
-        box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
-        display: flex;
-        color: white;
-        min-height: calc(100vh - 32px);
-        flex-direction: column;
-        padding: 60px 100px;
-      }
-    }
-
-    h1 {
-      font-weight: 900;
-      font-size: 56px;
-      margin-bottom: 44px;
-    }
-
-    h2 {
-      color: #807D7E;
-      font-size: 32px;
-      font-weight: 500;
-      margin-bottom: 24px;
-    }
-  `]
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent {
   signupForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
-    confirmPassword: ['', [Validators.required]]
+    confirmPassword: ['', [Validators.required]],
+    terms: [false, [Validators.requiredTrue]]
   }, { validators: this.passwordMatchValidator });
 
   registrationType: string | null = null;
@@ -216,6 +60,10 @@ export class SignupComponent {
     return TranslateComponent.translateValue(key, this.langService);
   }
 
+  getDirectionIcon(): string {
+    return document.dir === 'rtl' ? 'arrow_forward' : 'arrow_back';
+  }
+
   passwordMatchValidator(g: FormGroup) {
     return g.get('password')?.value === g.get('confirmPassword')?.value
       ? null : { mismatch: true };
@@ -231,6 +79,11 @@ export class SignupComponent {
         }
       });
     }
+  }
+
+  loginWithGoogle() {
+    // Implement Google login logic here
+    console.log('Google login clicked');
   }
 
   goBack() {
