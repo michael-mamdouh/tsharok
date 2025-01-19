@@ -1,9 +1,123 @@
-<div class="footer-wrapper">
-    <div class="container">
+<div class="footer footer-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 offset-lg-1">
         <div class="row">
-            <div class="col-4 offset-1">
-                Test
+          <div class="col-md-4">
+            <div class="footer__contact">
+              <img src="https://picsum.photos/id/237/204/136" alt="logo" />
+              <h2>
+                <app-translate key="layout.footer.contactUs"></app-translate>
+              </h2>
+              <ul>
+                <li>
+                  <mat-icon>phone</mat-icon>
+                  <a
+                    [href]="
+                      'tel:' + getTranslatedText('layout.footer.phoneOneValue')
+                    "
+                    ><app-translate
+                      key="layout.footer.phoneOneValue"
+                    ></app-translate
+                  ></a>
+                </li>
+                <li>
+                  <mat-icon>phone</mat-icon>
+                  <a
+                    [href]="
+                      'tel:' + getTranslatedText('layout.footer.phoneTwoValue')
+                    "
+                    ><app-translate
+                      key="layout.footer.phoneTwoValue"
+                    ></app-translate
+                  ></a>
+                </li>
+                <li>
+                  <mat-icon>mail</mat-icon>
+                  <a
+                    [href]="
+                      'mailto:' + getTranslatedText('layout.footer.emailValue')
+                    "
+                  >
+                    <app-translate
+                      key="layout.footer.emailValue"
+                    ></app-translate>
+                  </a>
+                </li>
+              </ul>
             </div>
+          </div>
+          <div class="col-md-4">
+            <div class="footer__contact">
+              <h2>
+                <app-translate key="layout.footer.quickLinks"></app-translate>
+              </h2>
+              <ul>
+                <li>
+                  <a
+                    [href]="
+                      getTranslatedText('layout.footer.homepage')
+                    "
+                    ><app-translate
+                      key="layout.footer.homepage"
+                    ></app-translate
+                  ></a>
+                </li>
+                <li>
+                    <a
+                      [href]="
+                        getTranslatedText('layout.footer.services')
+                      "
+                      ><app-translate
+                        key="layout.footer.services"
+                      ></app-translate
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      [href]="
+                        getTranslatedText('layout.footer.whoWeAre')
+                      "
+                      ><app-translate
+                        key="layout.footer.whoWeAre"
+                      ></app-translate
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      [href]="
+                        getTranslatedText('layout.footer.additionalServices')
+                      "
+                      ><app-translate
+                        key="layout.footer.additionalServices"
+                      ></app-translate
+                    ></a>
+                  </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="footer__contact">
+              <h2>
+                <app-translate key="layout.footer.ourLibraries"></app-translate>
+              </h2>
+              <ul>
+                <li>
+                  <a
+                    [href]="
+                      getTranslatedText('layout.footer.SaudiArabia')
+                    "
+                    ><app-translate
+                      key="layout.footer.SaudiArabia"
+                    ></app-translate
+                  ></a>
+                </li>
+
+              </ul>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>

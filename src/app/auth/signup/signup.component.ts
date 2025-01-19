@@ -52,7 +52,7 @@ import { LanguageService } from '../../services/language.service';
                         matInput
                         type="email"
                         formControlName="email"
-                        [placeholder]="getTranslatedPlaceholder('auth.signup.emailPlaceholder')"
+                        [placeholder]="getTranslatedText('auth.signup.emailPlaceholder')"
                       />
                       <mat-error *ngIf="signupForm.get('email')?.errors?.['required']">
                         <app-translate key="auth.signup.emailRequired"></app-translate>
@@ -73,7 +73,7 @@ import { LanguageService } from '../../services/language.service';
                         matInput
                         type="password"
                         formControlName="password"
-                        [placeholder]="getTranslatedPlaceholder('auth.signup.passwordPlaceholder')"
+                        [placeholder]="getTranslatedText('auth.signup.passwordPlaceholder')"
                       />
                       <mat-error *ngIf="signupForm.get('password')?.errors?.['required']">
                         <app-translate key="auth.signup.passwordRequired"></app-translate>
@@ -94,7 +94,7 @@ import { LanguageService } from '../../services/language.service';
                         matInput
                         type="password"
                         formControlName="confirmPassword"
-                        [placeholder]="getTranslatedPlaceholder('auth.signup.confirmPasswordPlaceholder')"
+                        [placeholder]="getTranslatedText('auth.signup.confirmPasswordPlaceholder')"
                       />
                       <mat-error *ngIf="signupForm.get('confirmPassword')?.errors?.['required']">
                         <app-translate key="auth.signup.confirmPasswordRequired"></app-translate>
@@ -212,7 +212,7 @@ export class SignupComponent {
     }
   }
 
-  getTranslatedPlaceholder(key: string): string {
+  getTranslatedText(key: string): string {
     return TranslateComponent.translateValue(key, this.langService);
   }
 

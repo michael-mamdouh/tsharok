@@ -6,6 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { TranslateComponent } from '../../translate/translate.component';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'app-footer',
@@ -23,5 +24,12 @@ import { TranslateComponent } from '../../translate/translate.component';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-
+  constructor(
+    private langService: LanguageService
+  ){
+    
+  }
+  getTranslatedText(key: string): string {
+    return TranslateComponent.translateValue(key, this.langService);
+  }
 }

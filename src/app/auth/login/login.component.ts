@@ -51,7 +51,7 @@ export class LoginComponent {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/profile';
   }
 
-  getTranslatedPlaceholder(key: string): string {
+  getTranslatedText(key: string): string {
     return TranslateComponent.translateValue(key, this.langService);
   }
 

@@ -1,4 +1,19 @@
 {
+  "layout":{
+    "footer":{
+      "contactUs":"Contact Us",
+      "phoneOneValue":"00201045455",
+      "phoneTwoValue":"+966201045455",
+      "emailValue":"email@gmail.com",
+      "quickLinks":"Quick Links",
+      "homepage":"Homepage",
+      "services":"Services",
+      "whoWeAre":"Who We Are",
+      "additionalServices":"Additional Services",
+      "ourLibraries":"Our Libraries",
+      "SaudiArabia":"Saudi Arabia"
+    }
+  },
   "nav": {
     "home": "Home",
     "about": "About Us",

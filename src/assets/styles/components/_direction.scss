@@ -5,7 +5,7 @@ $font-family-rtl: "Tajawal";
 // Direction mixin
 @mixin direction-font {
   font-family: $font-family-ltr;
-
+  
   [dir="rtl"] & {
     font-family: $font-family-rtl;
   }

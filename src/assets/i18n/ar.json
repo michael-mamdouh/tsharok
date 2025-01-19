@@ -1,4 +1,19 @@
 {
+  "layout":{
+    "footer":{
+      "contactUs":"تواصل معنا",
+      "phoneOneValue":"00201045455",
+      "phoneTwoValue":"+966201045455",
+      "emailValue":"email@gmail.com",
+      "quickLinks":"روابط سريعة",
+      "homepage":"الرئيسية",
+      "services":"الخدمات",
+      "whoWeAre":"من نحن",
+      "additionalServices":"الخدمات الأضافية",
+      "ourLibraries":"مكاتبنا",
+      "SaudiArabia":"المملكة العربية السعودية"
+    }
+  },
   "nav": {
     "home": "الرئيسية",
     "about": "معلومات عنا",

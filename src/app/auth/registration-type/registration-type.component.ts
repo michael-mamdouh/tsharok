@@ -53,7 +53,7 @@ import { Location } from '@angular/common';
             <input 
               matInput 
               formControlName="name"
-              [placeholder]="getTranslatedPlaceholder('auth.registrationType.namePlaceholder')"
+              [placeholder]="getTranslatedText('auth.registrationType.namePlaceholder')"
             >
             <mat-error *ngIf="registrationForm.get('name')?.errors?.['required']">
               <app-translate key="auth.registrationType.nameRequired"></app-translate>
@@ -185,7 +185,7 @@ export class RegistrationTypeComponent {
     this.selectedType = type;
   }
 
-  getTranslatedPlaceholder(key: string): string {
+  getTranslatedText(key: string): string {
     return TranslateComponent.translateValue(key, this.langService);
   }
 
