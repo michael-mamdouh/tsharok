@@ -1,117 +1,76 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { TranslateComponent } from '../../components/translate/translate.component';
-
+import { Component, signal } from "@angular/core";
+import { ActivatedRoute, Router, RouterLink } from "@angular/router";
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from "@angular/forms";
+import { CommonModule, Location } from "@angular/common";
+import { TranslateComponent } from "../../components/translate/translate.component";
+import { LanguageService } from "../../services/language.service";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatButtonModule } from "@angular/material/button";
+import { MatCardModule } from "@angular/material/card";
+import { MatIconModule } from "@angular/material/icon";
+import { AuthService } from "../../services/auth.service";
+import { MatSnackBar } from "@angular/material/snack-bar";
 @Component({
-  selector: 'app-forgot-password',
-  standalone: true,
+  standalone:true,
+  selector: "app-forgot-password",
+  templateUrl: "./forgot-password.component.html",
+  styleUrls: ["./forgot-password.component.scss","../login/login.component.scss"],
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    RouterLink,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    TranslateComponent
+    TranslateComponent,
+    MatIconModule,
   ],
-  template: `
-    <div class="auth-container">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>
-            <app-translate key="auth.forgotPassword.title"></app-translate>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <p class="description">
-            <app-translate key="auth.forgotPassword.description"></app-translate>
-          </p>
-          <form [formGroup]="forgotPasswordForm" (ngSubmit)="onSubmit()">
-            <mat-form-field appearance="outline">
-              <mat-label>
-                <app-translate key="auth.forgotPassword.email"></app-translate>
-              </mat-label>
-              <input matInput type="email" formControlName="email">
-              <mat-error *ngIf="forgotPasswordForm.get('email')?.errors?.['required']">
-                <app-translate key="auth.forgotPassword.emailRequired"></app-translate>
-              </mat-error>
-              <mat-error *ngIf="forgotPasswordForm.get('email')?.errors?.['email']">
-                <app-translate key="auth.forgotPassword.emailInvalid"></app-translate>
-              </mat-error>
-            </mat-form-field>
-
-            <button mat-raised-button color="primary" type="submit" [disabled]="!forgotPasswordForm.valid">
-              <app-translate key="auth.forgotPassword.submit"></app-translate>
-            </button>
-
-            <a mat-button routerLink="/login">
-              <app-translate key="auth.forgotPassword.backToLogin"></app-translate>
-            </a>
-          </form>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  `,
-  styles: [`
-    .auth-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-
-      mat-card {
-        width: 100%;
-        max-width: 400px;
-      }
-
-      .description {
-        margin: 1rem 0;
-        color: #666;
-      }
-
-      form {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-
-        mat-form-field {
-          width: 100%;
-        }
-
-        button {
-          width: 100%;
-        }
-      }
-    }
-  `]
 })
 export class ForgotPasswordComponent {
   forgotPasswordForm: FormGroup;
+  hide = signal(true);
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private snackBar: MatSnackBar,
+    private langService: LanguageService,
+    private location: Location
   ) {
     this.forgotPasswordForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]]
+      email: ["", [Validators.required, Validators.email]],
     });
   }
 
   onSubmit() {
     if (this.forgotPasswordForm.valid) {
-      const email = this.forgotPasswordForm.get('email')?.value;
-      // Here you would typically make an API call to request password reset
-      // For now, we'll just navigate to the reset password OTP screen
-      this.router.navigate(['/reset-password-otp'], { 
-        state: { email: email }
+      const email = this.forgotPasswordForm.get("email")?.value;
+      // Simulate API call and navigate
+      this.router.navigate(["/reset-password-otp"], {
+        state: { email: email },
       });
     }
+  }
+  goBack() {
+    this.location.back();
+  }
+  getDirectionIcon(): string {
+    return document.dir === "rtl" ? "arrow_forward" : "arrow_back";
+  }
+  getTranslatedText(key: string): string {
+    return TranslateComponent.translateValue(key, this.langService);
+  }
+  clickEvent(event: MouseEvent) {
+    this.hide.set(!this.hide());
+    event.stopPropagation();
   }
 }

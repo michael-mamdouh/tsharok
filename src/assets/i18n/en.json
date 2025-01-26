@@ -76,7 +76,10 @@
       "createAccount": "Create Account"
     },
     "forgotPassword": {
-      "title": "Forgot Password",
+      "welcomeTo": "Welcome to",
+      "title": "Reset your password",
+      "next": "Next",
+      "emailPlaceholder": "Enter your email",
       "description": "Enter your email and we'll send you a reset code",
       "email": "Email",
       "emailRequired": "Email is required",

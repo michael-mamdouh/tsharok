@@ -75,8 +75,11 @@
       "dontHaveAccount": "ليس لديك حساب؟",
       "createAccount": "إنشاء حساب"
     },
-    "forgotPassword": {
-      "title": "نسيت كلمة المرور",
+    "forgetPassword": {
+      "welcomeTo":"أهلا بك في",
+      "title":"إعادة تعيين كلمة المرور الخاصة بك",
+      "next":"التالي",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
       "description": "أدخل بريدك الإلكتروني وسنرسل لك رمز إعادة تعيين كلمة المرور",
       "email": "البريد الإلكتروني",
       "emailRequired": "البريد الإلكتروني مطلوب",
