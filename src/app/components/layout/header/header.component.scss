@@ -25,3 +25,45 @@ mat-toolbar {
     }
   }
 }
+
+
+.header_wrapper{
+  background-color: #0663C7;
+  padding: 5px 0;
+  .navbar{
+    .navbar-brand{
+      img{
+        max-width: 57px;
+        max-height: 50px;
+      }
+    }
+    .nav-links{
+      li{
+        display: inline-flex;
+        gap:33px;
+        a{
+          color: white;
+          font-size: 24px;
+          font-weight: 700;
+          text-decoration: none;
+        }
+      }
+    }
+    .auth-buttons__wrapper{
+      display: inline-flex;
+      gap: 20px;
+      .auth-buttons{
+          color: #0053AD;
+          font-size: 18px;
+          font-weight: 400;
+          text-decoration: none;
+          background-color: white;
+          min-width: 140px;
+          padding: 16px;
+          text-align: center;
+          border-radius: 24px;
+      }
+    }
+  }
+
+}
