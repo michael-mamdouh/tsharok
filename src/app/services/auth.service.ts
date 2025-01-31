@@ -102,7 +102,10 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    return this.isAuthenticatedSubject.value;
+    const token = this.getCookie(this.AUTH_COOKIE_NAME);
+    const userData = this.getCookie('user_data');
+    const userHasToken = token != null;
+    return (this.isAuthenticatedSubject.value || userHasToken);
   }
 
   getCurrentUser(): User | null {
