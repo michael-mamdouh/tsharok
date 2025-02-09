@@ -73,7 +73,8 @@
       "passwordMinLength": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل",
       "submit": "تسجيل الدخول",
       "dontHaveAccount": "ليس لديك حساب؟",
-      "createAccount": "إنشاء حساب"
+      "createAccount": "إنشاء حساب",
+      "forgetPassword": "نسيت كلمة المرور؟"
     },
     "forgetPassword": {
       "welcomeTo":"أهلا بك في",

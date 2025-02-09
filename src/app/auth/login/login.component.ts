@@ -82,6 +82,10 @@ export class LoginComponent {
   }
 
   goBack() {
-    this.location.back();
+    // if(window.location.href.includes("/otp-success")){
+      this.router.navigate(['/']);
+    // }else{
+      // this.location.back();
+    // }
   }
 }

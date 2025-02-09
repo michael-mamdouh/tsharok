@@ -73,7 +73,8 @@
       "passwordMinLength": "Password must be at least 6 characters",
       "submit": "Login",
       "dontHaveAccount": "Don't have an account?",
-      "createAccount": "Create Account"
+      "createAccount": "Create Account",
+      "forgetPassword": "Forgot Password"
     },
     "forgotPassword": {
       "welcomeTo": "Welcome to",
