@@ -1,19 +1,40 @@
-<div class="container">
-  <h1><app-translate key="home.title"></app-translate></h1>
-  <p><app-translate key="home.description"></app-translate></p>
+ <!-- <div class="container">
+  <div>Testttttttttttt</div>
+     <h1><app-translate key="home.title"></app-translate></h1>
+     <p><app-translate key="home.description"></app-translate></p>
   
-  <div class="button-container">
-    <a mat-raised-button color="primary" routerLink="/news">
-      <app-translate key="nav.news"></app-translate>  
-    </a>
-    <a mat-raised-button color="primary" routerLink="/about">
-      <app-translate key="nav.about"></app-translate>
-    </a>
-    <a mat-raised-button color="accent" routerLink="/login">
-      <app-translate key="nav.login"></app-translate>
-    </a>
-    <a mat-raised-button color="primary" routerLink="/signup">
-      <app-translate key="nav.signup"></app-translate>
-    </a>
-  </div>
-</div>
+     <div class="button-container">
+       <a mat-raised-button color="primary" routerLink="/news">
+         <app-translate key="nav.news"></app-translate>  
+       </a>
+       <a mat-raised-button color="primary" routerLink="/about">
+         <app-translate key="nav.about"></app-translate>
+       </a>
+    
+       <ng-container *ngIf="!isAuthenticated">
+         <a mat-raised-button color="accent" routerLink="/login">
+           <app-translate key="nav.login"></app-translate>
+         </a>
+         <a mat-raised-button color="primary" routerLink="/register">
+           <app-translate key="nav.signup"></app-translate>
+         </a>
+       </ng-container>
+    
+       <ng-container *ngIf="isAuthenticated">
+         <a mat-raised-button color="accent" routerLink="/messages">
+           <mat-icon>mail</mat-icon>
+           <app-translate key="nav.messages"></app-translate>
+         </a>
+         <a mat-raised-button color="primary" routerLink="/users/profile">
+           <mat-icon>person</mat-icon>
+           <app-translate key="nav.userProfile"></app-translate>
+         </a>
+         <a mat-raised-button color="primary" routerLink="/company/profile">
+           <mat-icon>business</mat-icon>
+           <app-translate key="nav.companyProfile"></app-translate>
+         </a>
+       </ng-container>
+     </div>
+   </div> -->
+
+   <app-banner></app-banner>
