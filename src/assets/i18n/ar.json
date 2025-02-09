@@ -1,5 +1,8 @@
 {
   "layout":{
+    "global":{
+      "close":"اغلاق"
+    },
     "footer":{
       "contactUs":"تواصل معنا",
       "phoneOneValue":"00201045455",
@@ -97,7 +100,8 @@
       "name": "الاسم",
       "namePlaceholder": "أدخل الاسم",
       "nameRequired": "الاسم مطلوب",
-      "next": "التالي"
+      "next": "التالي",
+      "selectType": "اختر نوع التسجيل"
     },
     "signup":{
       "title": "إنشاء حساب",

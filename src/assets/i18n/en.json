@@ -1,5 +1,8 @@
 {
   "layout":{
+    "global":{
+      "close":"Close"
+    },
     "footer":{
       "contactUs":"Contact Us",
       "phoneOneValue":"00201045455",
@@ -97,7 +100,8 @@
       "name": "Name",
       "namePlaceholder": "Enter name",
       "nameRequired": "Name is required",
-      "next": "Next"
+      "next": "Next",
+      "selectType": "Select Registration Type"
     },
     "signup":{
       "title": "Sign Up",

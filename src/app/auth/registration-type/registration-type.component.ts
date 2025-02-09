@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { TranslateComponent } from '../../components/translate/translate.component';
 import { LanguageService } from '../../services/language.service';
 import { Location } from '@angular/common';
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-registration-type',
@@ -35,7 +36,8 @@ export class RegistrationTypeComponent {
     private fb: FormBuilder,
     private router: Router,
     private langService: LanguageService,
-    private location: Location
+    private location: Location,
+    private snackBar: MatSnackBar
   ) {
     this.registrationForm = this.fb.group({
       name: ['', Validators.required]
@@ -62,7 +64,18 @@ export class RegistrationTypeComponent {
           name: this.registrationForm.get('name')?.value
         }
       });
-    }
+    }else{
+      if(!this.selectedType){
+        this.snackBar.open(
+          this.getTranslatedText("auth.registrationType.selectType"),
+          this.getTranslatedText("layout.global.close"),
+          {
+            duration: 3000,
+            horizontalPosition: "center",
+            verticalPosition: "top",
+          }
+        );
+    }}
   }
 
   goBack() {

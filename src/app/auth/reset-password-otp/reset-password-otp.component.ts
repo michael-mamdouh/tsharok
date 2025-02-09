@@ -141,7 +141,7 @@ export class ResetPasswordOtpComponent implements OnInit, OnDestroy {
     } else {
       this.snackBar.open(
         this.getTranslatedText("auth.otp.otpExpired"),
-        "Close",
+        this.getTranslatedText("layout.global.close"),
         {
           duration: 3000,
           horizontalPosition: "center",

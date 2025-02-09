@@ -105,7 +105,7 @@ export class ResetPasswordComponent {
       ) {
         this.snackBar.open(
           this.getTranslatedText("auth.signup.passwordsMismatch"),
-          "Close",
+          this.getTranslatedText("layout.global.close"),
           {
             duration: 3000,
             horizontalPosition: "center",
