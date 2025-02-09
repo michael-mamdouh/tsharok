@@ -61,6 +61,11 @@
         font-size: 16px;
 
     }
+    .auth-container__img-wrapper{
+        img{
+            max-width: 240px;
+        }
+    }
 }
 .success__wrapper{
     display: flex;
