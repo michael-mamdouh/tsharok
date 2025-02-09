@@ -39,16 +39,32 @@
   font-style: normal;
 }
 
-
-
 @font-face {
-  font-family: 'Material Icons';
+  font-family: "Material Icons";
   font-style: normal;
   font-weight: 400;
   src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
-  src: local('Material Icons'),
-    local('MaterialIcons-Regular'),
-    url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
-    url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
-    url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+  src:
+    local("Material Icons"),
+    local("MaterialIcons-Regular"),
+    url(https://example.com/MaterialIcons-Regular.woff2) format("woff2"),
+    url(https://example.com/MaterialIcons-Regular.woff) format("woff"),
+    url(https://example.com/MaterialIcons-Regular.ttf) format("truetype");
+}
+
+.generic-button {
+  color: #0053ad;
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+  background-color: white;
+  min-width: 140px;
+  padding: 16px;
+  text-align: center;
+  border-radius: 24px;
+  display: inline-flex;
+  &.generic-button--blue {
+    background-color: #0053ad;
+    color: white;
+  }
 }

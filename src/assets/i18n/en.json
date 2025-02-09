@@ -30,7 +30,13 @@
   },
   "home": {
     "title": "Welcome to Our Website",
-    "description": "This is the homepage of our Angular application."
+    "description": "This is the homepage of our Angular application.",
+    "banner":{
+      "bannerTitle":"This is an example text that can be replaced in the same space,",
+      "bannerFirstText":"Banner First Text",
+      "bannerSecondText":"Banner Second Text",
+      "bannerButtonText":"Request Consultation"
+    }
   },
   "about": {
     "title": "About Us",

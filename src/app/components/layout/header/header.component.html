@@ -39,7 +39,16 @@
     </div>
   </div>
 </mat-toolbar> -->
-
+<button mat-raised-button 
+(click)="switchLanguage('en')" 
+[color]="currentLang === 'en' ? 'accent' : ''">
+English
+</button>
+<button mat-raised-button 
+(click)="switchLanguage('ar')" 
+[color]="currentLang === 'ar' ? 'accent' : ''">
+عربي
+</button>
 <div class="header_wrapper">
   <div class="container">
     <div class="row">
@@ -74,16 +83,6 @@
                 <a routerLink="/register" class="auth-buttons" *ngIf="!isAuthenticated">Sign Up</a>
                 <a routerLink="/login" class="auth-buttons" *ngIf="!isAuthenticated">Login</a>
               </div>
-              <button mat-raised-button 
-              (click)="switchLanguage('en')" 
-              [color]="currentLang === 'en' ? 'accent' : ''">
-        English
-      </button>
-      <button mat-raised-button 
-              (click)="switchLanguage('ar')" 
-              [color]="currentLang === 'ar' ? 'accent' : ''">
-        عربي
-      </button>
             </div>
           </div>
         </nav>
