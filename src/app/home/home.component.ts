@@ -5,7 +5,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { TranslateComponent } from '../components/translate/translate.component';
 import { AuthService } from '../services/auth.service';
-import { BannerComponent } from './banner/banner.component'; // Import the banner component
+import { BannerComponent } from './banner/banner.component';
+import { FeatureComponent } from './feature/feature.component';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,8 @@ import { BannerComponent } from './banner/banner.component'; // Import the banne
     MatButtonModule,
     MatIconModule,
     TranslateComponent,
-    BannerComponent
+    BannerComponent,
+    FeatureComponent
   ],
   templateUrl: './home.component.html',
   // template: `
