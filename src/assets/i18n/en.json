@@ -144,7 +144,9 @@
       "confirmPasswordPlaceholder": "Confirm your password",
       "confirmPassword": "Confirm Password",
       "passwordsMismatch": "Passwords do not match",
-      "confirm": "Confirm"
+      "confirm": "Confirm",
+      "resetPasswordSuccessfully": "Password has been changed successfully",
+      "backtoLogin": "Back to Login"
     }
   }
 }
