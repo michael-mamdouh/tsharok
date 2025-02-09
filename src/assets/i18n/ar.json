@@ -132,6 +132,19 @@
       "otpExpired": "انتهت صلاحية OTP!",
       "accountCreatedSuccessfully": "تم إنشاء الحساب بنجاح",
       "backtoLogin": "العودة لتسجيل الدخول"
+    },
+    "resetPassword":{
+      "title": "إعادة تعيين كلمة المرور الخاصة بك",
+      "welcomeTo": "أهلا في",
+      "password": "كلمة المرور",
+      "passwordPlaceholder": "أدخل كلمة المرور",
+      "passwordRequired": "كلمة المرور مطلوبة",
+      "passwordMinLength": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل",
+      "confirmPasswordRequired": "يجب تأكيد كلمة المرور",
+      "confirmPasswordPlaceholder": "تأكيد كلمة المرور",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "passwordsMismatch": "كلمات المرور غير متطابقة",
+      "confirm": "تاكيد"
     }
   }
 }

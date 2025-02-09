@@ -36,7 +36,9 @@ export class AppComponent {
         window.location.href.includes("/register") ||
         window.location.href.includes("/signup") ||
         window.location.href.includes("/otp") ||
-        window.location.href.includes("/forgot-password");
+        window.location.href.includes("/forgot-password") ||
+        window.location.href.includes("/reset-password")
+        
         this.showHeader = !excludeFromHeader; // Hide header on login page
     });
   }

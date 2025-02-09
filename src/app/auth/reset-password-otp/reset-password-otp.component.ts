@@ -1,15 +1,26 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { TranslateComponent } from '../../components/translate/translate.component';
+
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { CommonModule, Location } from "@angular/common";
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from "@angular/forms";
+import { Router } from "@angular/router";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatButtonModule } from "@angular/material/button";
+import { MatCardModule } from "@angular/material/card";
+import { MatIconModule } from "@angular/material/icon";
+import { TranslateComponent } from "../../components/translate/translate.component";
+import { LanguageService } from "../../services/language.service";
+import { interval, Subscription } from "rxjs";
+import { take } from "rxjs/operators";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
-  selector: 'app-reset-password-otp',
+  selector: "app-otp",
   standalone: true,
   imports: [
     CommonModule,
@@ -18,129 +29,134 @@ import { TranslateComponent } from '../../components/translate/translate.compone
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    TranslateComponent
+    TranslateComponent,
+    MatIconModule,
   ],
-  template: `
-    <div class="auth-container">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>
-            <app-translate key="auth.resetPasswordOtp.title"></app-translate>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <p class="otp-message">
-            <app-translate key="auth.resetPasswordOtp.message"></app-translate>
-            <strong>{{ email }}</strong>
-          </p>
-          
-          <form [formGroup]="otpForm" (ngSubmit)="onSubmit()">
-            <mat-form-field appearance="outline">
-              <mat-label>
-                <app-translate key="auth.resetPasswordOtp.code"></app-translate>
-              </mat-label>
-              <input matInput type="text" formControlName="otp" maxlength="6">
-              <mat-error *ngIf="otpForm.get('otp')?.errors?.['required']">
-                <app-translate key="auth.resetPasswordOtp.required"></app-translate>
-              </mat-error>
-              <mat-error *ngIf="otpForm.get('otp')?.errors?.['minlength'] || otpForm.get('otp')?.errors?.['maxlength']">
-                <app-translate key="auth.resetPasswordOtp.invalid"></app-translate>
-              </mat-error>
-            </mat-form-field>
-
-            <button mat-raised-button color="primary" type="submit" [disabled]="!otpForm.valid">
-              <app-translate key="auth.resetPasswordOtp.verify"></app-translate>
-            </button>
-            
-            <button mat-button type="button" (click)="resendOtp()">
-              <app-translate key="auth.resetPasswordOtp.resend"></app-translate>
-            </button>
-          </form>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  `,
-  styles: [`
-    .auth-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-
-      mat-card {
-        width: 100%;
-        max-width: 400px;
-      }
-
-      .otp-message {
-        margin: 1rem 0;
-        text-align: center;
-        
-        strong {
-          display: block;
-          margin-top: 0.5rem;
-        }
-      }
-
-      form {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-
-        mat-form-field {
-          width: 100%;
-          
-          input {
-            letter-spacing: 0.5em;
-            text-align: center;
-          }
-        }
-
-        button {
-          width: 100%;
-          
-          &[type="button"] {
-            margin-top: 0.5rem;
-          }
-        }
-      }
-    }
-  `]
+  templateUrl: "./reset-password-otp.component.html",
+  styleUrls: ["../otp/otp.component.scss", "../login/login.component.scss"],
 })
-export class ResetPasswordOtpComponent {
+export class ResetPasswordOtpComponent implements OnInit, OnDestroy {
   otpForm: FormGroup;
   email: string | null;
+  otpInputs: FormGroup;
+  resendDisabled = true;
+  timeLeft = 60;
+  timerSubscription?: Subscription;
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private langService: LanguageService,
+    private location: Location,
+    private snackBar: MatSnackBar
   ) {
     this.email = history.state.email;
     if (!this.email) {
-      this.router.navigate(['/forgot-password']);
+      this.router.navigate(["/signup"]);
     }
 
     this.otpForm = this.fb.group({
-      otp: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]]
+      otp: [
+        "",
+        [Validators.required, Validators.minLength(6), Validators.maxLength(6)],
+      ],
     });
+
+    // Create form controls for each OTP digit
+    this.otpInputs = this.fb.group({
+      digit1: ["", [Validators.required, Validators.pattern("[0-9]")]],
+      digit2: ["", [Validators.required, Validators.pattern("[0-9]")]],
+      digit3: ["", [Validators.required, Validators.pattern("[0-9]")]],
+      digit4: ["", [Validators.required, Validators.pattern("[0-9]")]],
+      digit5: ["", [Validators.required, Validators.pattern("[0-9]")]],
+      digit6: ["", [Validators.required, Validators.pattern("[0-9]")]],
+    });
+  }
+
+  ngOnInit() {
+    this.startResendTimer();
+  }
+
+  ngOnDestroy() {
+    if (this.timerSubscription) {
+      this.timerSubscription.unsubscribe();
+    }
+  }
+
+  startResendTimer() {
+    this.resendDisabled = true;
+    this.timeLeft = 60;
+
+    if (this.timerSubscription) {
+      this.timerSubscription.unsubscribe();
+    }
+
+    this.timerSubscription = interval(1000)
+      .pipe(take(61))
+      .subscribe(() => {
+        if (this.timeLeft > 0) {
+          this.timeLeft--;
+        } else {
+          this.resendDisabled = false;
+          if (this.timerSubscription) {
+            this.timerSubscription.unsubscribe();
+          }
+        }
+      });
+  }
+
+  onDigitInput(
+    event: any,
+    nextInput?: HTMLInputElement,
+    prevInput?: HTMLInputElement
+  ) {
+    if (event.target.value.length === 1 && nextInput) {
+      nextInput.focus();
+    } else if (event.target.value.length === 0 && prevInput) {
+      prevInput.focus();
+    }
+
+    // Combine all digits
+    const digits = Object.values(this.otpInputs.value).join("");
+    this.otpForm.get("otp")?.setValue(digits);
+  }
+
+  getDirectionIcon(): string {
+    return document.dir === "rtl" ? "arrow_forward" : "arrow_back";
+  }
+
+  getTranslatedText(key: string): string {
+    return TranslateComponent.translateValue(key, this.langService);
   }
 
   onSubmit() {
     if (this.otpForm.valid) {
-      // Here you would verify the OTP with your backend
-      // For now, we'll just navigate to the reset password screen
-      this.router.navigate(['/reset-password'], { 
-        state: { 
+      console.log("OTP submitted:", this.otpForm.value);
+      this.router.navigate(["/reset-password"], {
+        state: {
           email: this.email,
-          otp: this.otpForm.get('otp')?.value 
-        }
+          otp: this.otpForm.get("otp")?.value,
+        },
       });
+    } else {
+      this.snackBar.open(
+        this.getTranslatedText("auth.otp.otpExpired"),
+        "Close",
+        {
+          duration: 3000,
+          horizontalPosition: "center",
+          verticalPosition: "top",
+        }
+      );
     }
   }
 
   resendOtp() {
-    // Implement OTP resend logic here
-    console.log('Resending OTP to:', this.email);
+    console.log("Resending OTP to:", this.email);
+    this.startResendTimer();
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

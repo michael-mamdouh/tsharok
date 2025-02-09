@@ -132,6 +132,19 @@
       "otpExpired": "OTP has expired",
       "accountCreatedSuccessfully": "Account has been created successfully",
       "backtoLogin": "Back to Login"
+    },
+    "resetPassword":{
+      "title": "Reset Your Password",
+      "welcomeTo": "Welcome to",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "passwordRequired": "Password is required",
+      "passwordMinLength": "Password must be at least 6 characters",
+      "confirmPasswordRequired": "Password confirmation is required",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "confirmPassword": "Confirm Password",
+      "passwordsMismatch": "Passwords do not match",
+      "confirm": "Confirm"
     }
   }
 }
