@@ -51,6 +51,14 @@
       "featureTitle":"Feature Three",
       "featureDescription":"This is an example text that can be replaced in the same space, this text has been generated from the Arabic text generator, where you can generate such text",
       "featureButtonText":"Get Started"
+    },
+    "genericSectionOne":{
+      "title":"How We Provide Our Services",
+      "description":"This is an example text that can be replaced in the same space, this text has been generated from the Arabic text generator, where you can generate such text"
+    },
+    "genericSectionTwo":{
+      "title":"Why should start with us ...!",
+      "description":"This is an example text that can be replaced in the same space, this text has been generated from the Arabic text generator, where you can generate such text"
     }
   },
   "about": {

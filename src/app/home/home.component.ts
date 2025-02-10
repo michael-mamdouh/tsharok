@@ -8,6 +8,7 @@ import { AuthService } from "../services/auth.service";
 import { BannerComponent } from "./banner/banner.component";
 import { FeatureComponent } from "./feature/feature.component";
 import { LanguageService } from "../services/language.service";
+import { GenericTitleDescriptionComponent } from "./generic-title-description/generic-title-description.component";
 
 @Component({
   selector: "app-home",
@@ -20,6 +21,7 @@ import { LanguageService } from "../services/language.service";
     TranslateComponent,
     BannerComponent,
     FeatureComponent,
+    GenericTitleDescriptionComponent
   ],
   templateUrl: "./home.component.html",
   // template: `

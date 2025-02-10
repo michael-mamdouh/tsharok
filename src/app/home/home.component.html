@@ -38,6 +38,16 @@
    </div> -->
 
 <app-banner></app-banner>
+
+<app-generic-title-description
+  [title]="getTranslatedText('home.genericSectionOne.title')"
+  [description]="getTranslatedText('home.genericSectionOne.description')"
+></app-generic-title-description>
+
+<app-generic-title-description
+  [title]="getTranslatedText('home.genericSectionTwo.title')"
+  [description]="getTranslatedText('home.genericSectionTwo.description')"
+></app-generic-title-description>
 <app-feature
   [title]="getTranslatedText('home.featureOne.featureTitle')"
   [description]="getTranslatedText('home.featureOne.featureDescription')"
