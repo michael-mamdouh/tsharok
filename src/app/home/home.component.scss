@@ -23,3 +23,48 @@
     border-radius: 70px;
   }
 }
+
+.learnSection{
+  background-color: #0663C7;
+  padding: 70px 0;
+  margin-bottom: 70px;
+  h2{
+    color:white;
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+  ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    margin-bottom: 30px;
+    li{
+      color: white;
+      font-size: 20px;
+      font-weight: 600;
+      position: relative;
+      display: inline-flex;
+      gap: 5px;
+      align-items: center;
+      span{
+        content: "";
+        width: 25px;
+        height: 25px;
+        background-color: white;
+        border-radius: 50%;
+        display: inline-flex;
+      }
+    }
+  }
+  .learnSection__img-wrapper{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}

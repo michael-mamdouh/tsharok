@@ -59,6 +59,21 @@
     "genericSectionTwo":{
       "title":"Why should start with us ...!",
       "description":"This is an example text that can be replaced in the same space, this text has been generated from the Arabic text generator, where you can generate such text"
+    },
+    "learnSection":{
+      "title":"Learn through consultations",
+      "listItemOne":"This is an example text that can be replaced",
+      "listItemTwo":"This is an example text that can be replaced",
+      "listItemThree":"This is an example text that can be replaced",
+      "buttonText":"Get Started"
+    },
+    "coopSection":{
+      "title":"We cooperate with...!"
+    },
+    "attachedFooterSection":{
+      "title":"One platform to get all that",
+      "description":"This is an example text that can be replaced in the same space,",
+      "buttonText":"Get Started"
     }
   },
   "about": {
