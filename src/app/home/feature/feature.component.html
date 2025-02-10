@@ -1,27 +1,29 @@
-<div class="banner">Feature</div>
-<!-- 
-<div
-  class="banner-container"
-  style="background-image: url(../../../assets/images/home-banner.png)"
->
-  <div class="banner-content">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-lg-7">
-          <h2>
-            <app-translate key="home.banner.bannerTitle"></app-translate>
-          </h2>
-          <p>
-            <app-translate key="home.banner.bannerFirstText"></app-translate>
-          </p>
-          <p>
-            <app-translate key="home.banner.bannerSecondText"></app-translate>
-          </p>
-          <a href="#" class="generic-button">
-            <app-translate key="home.banner.bannerButtonText"></app-translate>
-          </a>
+<div class="feature">
+  <div class="container">
+    <div class="row g-0">
+      <div
+        class="col-lg-6"
+        [ngClass]="{ 'order-lg-2': imgPosition === 'right' }"
+      >
+        <div class="row feature__wrapper">
+          <div
+          [ngClass]="{ 'col-lg-10': imgPosition === 'left' , 'offset-lg-1': imgPosition === 'right' }"
+          >
+            <div class="feature__content">
+              <h2>{{ title }}</h2>
+              <p>{{ description }}</p>
+              <a
+                [href]="buttonLink"
+                class="generic-button generic-button--blue"
+                >{{ buttonText }}</a
+              >
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="col-lg-6">
+        <img [src]="imageUrl" [alt]="title" />
       </div>
     </div>
   </div>
-</div> -->
+</div>

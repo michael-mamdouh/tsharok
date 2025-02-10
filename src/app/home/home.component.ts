@@ -1,39 +1,40 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { TranslateComponent } from '../components/translate/translate.component';
-import { AuthService } from '../services/auth.service';
-import { BannerComponent } from './banner/banner.component';
-import { FeatureComponent } from './feature/feature.component';
+import { Component } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { RouterLink } from "@angular/router";
+import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
+import { TranslateComponent } from "../components/translate/translate.component";
+import { AuthService } from "../services/auth.service";
+import { BannerComponent } from "./banner/banner.component";
+import { FeatureComponent } from "./feature/feature.component";
+import { LanguageService } from "../services/language.service";
 
 @Component({
-  selector: 'app-home',
+  selector: "app-home",
   standalone: true,
   imports: [
     CommonModule,
-    RouterLink, 
+    RouterLink,
     MatButtonModule,
     MatIconModule,
     TranslateComponent,
     BannerComponent,
-    FeatureComponent
+    FeatureComponent,
   ],
-  templateUrl: './home.component.html',
+  templateUrl: "./home.component.html",
   // template: `
   //   <div class="container">
   //     <h1><app-translate key="home.title"></app-translate></h1>
   //     <p><app-translate key="home.description"></app-translate></p>
-      
+
   //     <div class="button-container">
   //       <a mat-raised-button color="primary" routerLink="/news">
-  //         <app-translate key="nav.news"></app-translate>  
+  //         <app-translate key="nav.news"></app-translate>
   //       </a>
   //       <a mat-raised-button color="primary" routerLink="/about">
   //         <app-translate key="nav.about"></app-translate>
   //       </a>
-        
+
   //       <ng-container *ngIf="!isAuthenticated">
   //         <a mat-raised-button color="accent" routerLink="/login">
   //           <app-translate key="nav.login"></app-translate>
@@ -42,7 +43,7 @@ import { FeatureComponent } from './feature/feature.component';
   //           <app-translate key="nav.signup"></app-translate>
   //         </a>
   //       </ng-container>
-        
+
   //       <ng-container *ngIf="isAuthenticated">
   //         <a mat-raised-button color="accent" routerLink="/messages">
   //           <mat-icon>mail</mat-icon>
@@ -60,14 +61,20 @@ import { FeatureComponent } from './feature/feature.component';
   //     </div>
   //   </div>
   // `,
-  styleUrls: ['./home.component.scss']
+  styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent {
   isAuthenticated = false;
 
-  constructor(private authService: AuthService) {
+  constructor(
+    private authService: AuthService,
+    private langService: LanguageService
+  ) {
     this.authService.isAuthenticated$.subscribe(
-      isAuth => this.isAuthenticated = isAuth
+      (isAuth) => (this.isAuthenticated = isAuth)
     );
+  }
+  getTranslatedText(key: string): string {
+    return TranslateComponent.translateValue(key, this.langService);
   }
 }

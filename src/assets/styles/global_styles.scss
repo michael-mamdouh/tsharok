@@ -63,8 +63,14 @@
   text-align: center;
   border-radius: 24px;
   display: inline-flex;
+  width: fit-content;
+  text-align: center;
+  justify-content: center;
   &.generic-button--blue {
     background-color: #0053ad;
     color: white;
   }
+}
+p{
+  line-height: normal;
 }

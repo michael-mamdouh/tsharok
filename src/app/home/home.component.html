@@ -1,4 +1,4 @@
- <!-- <div class="container">
+<!-- <div class="container">
   <div>Testttttttttttt</div>
      <h1><app-translate key="home.title"></app-translate></h1>
      <p><app-translate key="home.description"></app-translate></p>
@@ -37,7 +37,28 @@
      </div>
    </div> -->
 
-   <app-banner></app-banner>
-   <app-feature></app-feature>
-   <app-feature></app-feature>
-   <app-feature></app-feature>
+<app-banner></app-banner>
+<app-feature
+  [title]="getTranslatedText('home.featureOne.featureTitle')"
+  [description]="getTranslatedText('home.featureOne.featureDescription')"
+  [imageUrl]="'../../../assets/images/homepage-feature1.png'"
+  [buttonText]="getTranslatedText('home.featureOne.featureButtonText')"
+  [buttonLink]="'#'"
+  [imgPosition]="'left'"
+></app-feature>
+<app-feature
+  [title]="getTranslatedText('home.featureTwo.featureTitle')"
+  [description]="getTranslatedText('home.featureTwo.featureDescription')"
+  [imageUrl]="'../../../assets/images/homepage-feature2.png'"
+  [buttonText]="getTranslatedText('home.featureTwo.featureButtonText')"
+  [buttonLink]="'#'"
+  [imgPosition]="'right'"
+></app-feature>
+<app-feature
+  [title]="getTranslatedText('home.featureThree.featureTitle')"
+  [description]="getTranslatedText('home.featureThree.featureDescription')"
+  [imageUrl]="'../../../assets/images/homepage-feature3.png'"
+  [buttonText]="getTranslatedText('home.featureThree.featureButtonText')"
+  [buttonLink]="'#'"
+  [imgPosition]="'left'"
+></app-feature>

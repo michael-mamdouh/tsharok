@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterLink } from "@angular/router";
 import { MatButtonModule } from "@angular/material/button";
@@ -20,6 +20,13 @@ import { LanguageService } from "../../services/language.service";
   styleUrls: ["./feature.component.scss"],
 })
 export class FeatureComponent {
+  @Input() title!: string;
+  @Input() description!: string;
+  @Input() imageUrl!: string;
+  @Input() buttonText!: string;
+  @Input() buttonLink!: string;
+  @Input() imgPosition!: string;
+
   constructor(private langService: LanguageService) {}
   getTranslatedText(key: string): string {
     return TranslateComponent.translateValue(key, this.langService);

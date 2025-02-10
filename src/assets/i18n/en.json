@@ -36,6 +36,21 @@
       "bannerFirstText":"Banner First Text",
       "bannerSecondText":"Banner Second Text",
       "bannerButtonText":"Request Consultation"
+    },
+    "featureOne":{
+      "featureTitle":"Feature One",
+      "featureDescription":"This is an example text that can be replaced in the same space, this text has been generated from the Arabic text generator, where you can generate such text",
+      "featureButtonText":"Get Started"
+    },
+    "featureTwo":{
+      "featureTitle":"Feature Three",
+      "featureDescription":"This is an example text that can be replaced in the same space, this text has been generated from the Arabic text generator, where you can generate such text",
+      "featureButtonText":"Get Started"
+    },
+    "featureThree":{
+      "featureTitle":"Feature Three",
+      "featureDescription":"This is an example text that can be replaced in the same space, this text has been generated from the Arabic text generator, where you can generate such text",
+      "featureButtonText":"Get Started"
     }
   },
   "about": {

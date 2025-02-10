@@ -1,0 +1,26 @@
+.feature {
+    margin-bottom: 70px;
+    .feature__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 100%;
+        h2 {
+            font-size: 40px;
+            font-weight: 700;
+            color: #4d4d4d;
+        }
+        p {
+            font-size: 22px;
+            font-weight: 500;
+            color: #575757;
+        }
+    }
+    img {
+        border-radius: 40px;
+        width: 100%;
+    }
+    .feature__wrapper {
+       height: 100%;
+    }
+}
