@@ -68,3 +68,45 @@
     background-size: cover;
   }
 }
+
+.coopSection{
+  margin-bottom: 100px;
+  h2{
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 40px;
+    color:#0053AD;
+
+  }
+  a{
+    display: inline-flex;
+  }
+  img{
+    max-width: 100%;
+    height: 210px;
+  }
+}
+.beforeFooter{
+  margin-bottom: -50px;
+  .beforeFooter-wrapper{
+    background-color: #0053AD;
+    padding:70px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    h2{
+      margin-bottom: 15px;
+      font-weight: 700;
+      font-size: 50px;
+      color:white;
+    }
+    p{
+      margin-bottom: 0;
+      font-weight: 400;
+      font-size: 20px;
+      color:white;
+    }
+  }
+}
