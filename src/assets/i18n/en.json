@@ -15,6 +15,13 @@
       "additionalServices":"Additional Services",
       "ourLibraries":"Our Libraries",
       "SaudiArabia":"Saudi Arabia"
+    },
+    "header":{
+      "homepage":"Homepage",
+      "whoWeAre":"Who We Are",
+      "services":"Services",
+      "login":"Login",
+      "registerNow":"Signup"
     }
   },
   "nav": {

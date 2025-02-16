@@ -15,6 +15,13 @@
       "additionalServices":"الخدمات الأضافية",
       "ourLibraries":"مكاتبنا",
       "SaudiArabia":"المملكة العربية السعودية"
+    },
+    "header":{
+      "homepage":"الرئيسية",
+      "whoWeAre":"من نحن",
+      "services":"الخدمات",
+      "login":"تسجيل الدخول",
+      "registerNow":"سجل الأن"
     }
   },
   "nav": {

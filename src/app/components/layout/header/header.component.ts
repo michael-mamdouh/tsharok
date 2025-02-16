@@ -44,4 +44,7 @@ export class HeaderComponent {
   async switchLanguage(lang: string) {
     await this.langService.setLanguage(lang);
   }
+  getTranslatedText(key: string): string {
+    return TranslateComponent.translateValue(key, this.langService);
+  }
 }
