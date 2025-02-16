@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
@@ -39,6 +39,10 @@ export class HeaderComponent {
     authService.isAuthenticated$.subscribe(
       isAuth => this.isAuthenticated = isAuth
     );
+    const authServiceInject = inject(AuthService);
+      if (authServiceInject.isAuthenticated()) {
+        this.isAuthenticated =  true;
+      }
   }
 
   async switchLanguage(lang: string) {
