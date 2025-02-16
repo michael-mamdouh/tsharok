@@ -1,12 +1,11 @@
 import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { RouterLink } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { TranslateComponent } from "../../../components/translate/translate.component";
-import { BannerComponent } from "../../../home/banner/banner.component";
-import { AuthService } from "../../../services/auth.service";
 import { LanguageService } from "../../../services/language.service";
+import { FormsModule } from "@angular/forms";
 
 @Component({
   selector: "app-home",
@@ -17,7 +16,7 @@ import { LanguageService } from "../../../services/language.service";
     MatButtonModule,
     MatIconModule,
     TranslateComponent,
-    BannerComponent,
+    FormsModule
   ],
   templateUrl: "./services.component.html",
   
@@ -25,16 +24,24 @@ import { LanguageService } from "../../../services/language.service";
 })
 export class ServicesComponent {
   isAuthenticated = false;
+  searchValue: string = "";
 
   constructor(
-    private authService: AuthService,
-    private langService: LanguageService
+    private langService: LanguageService,
+    private router: Router
   ) {
-    this.authService.isAuthenticated$.subscribe(
-      (isAuth) => (this.isAuthenticated = isAuth)
-    );
+    
+  }
+  getDirectionClass(): string {
+    return document.dir === 'rtl' ? 'rightDirection' : 'leftDirection';
   }
   getTranslatedText(key: string): string {
     return TranslateComponent.translateValue(key, this.langService);
+  }
+  onSearch() {
+    if (this.searchValue.trim()) {
+      console.log("Navigate Here");
+      this.router.navigate([`/user/searchListing/${this.searchValue.trim()}`]);
+    }
   }
 }
