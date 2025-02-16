@@ -203,5 +203,22 @@
       "resetPasswordSuccessfully": "تم تغيير كلمة المرور بنجاح",
       "backtoLogin": "العودة لتسجيل الدخول"
     }
+  },
+  "user":{
+    "services":{
+      "banner":{
+        "bannerTitle":"أبحث بين المحترفين  كيف تنجز أعمالك ",
+        "bannerBrief":"أبحث بين 20.000 مقدم خدمات",
+        "inputPlaceholder":"أبحث عن خدمة",
+        "buttonText":"بحث",
+        "mostAsking":"الأكثر طلباً"
+      },
+      "ServicesCards":{
+        "title":"كافة الخدمات الاحترافية لإنجاز أعمالك "
+      },
+      "Solutions":{
+        "title":"حلول عصرية تساعدك في أعمالك"
+      }
+    }
   }
 }

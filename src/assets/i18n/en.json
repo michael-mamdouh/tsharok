@@ -203,5 +203,22 @@
       "resetPasswordSuccessfully": "Password has been changed successfully",
       "backtoLogin": "Back to Login"
     }
+  },
+  "user":{
+    "services":{
+      "banner": {
+        "bannerTitle": "Search among professionals to get your work done",
+        "bannerBrief": "Search among 20,000 service providers",
+        "inputPlaceholder": "Search for a service",
+        "buttonText": "Search",
+        "mostAsking": "Most Requested"
+      },
+      "ServicesCards": {
+        "title": "All professional services to get your work done"
+      },
+      "Solutions": {
+        "title": "Modern solutions to help you with your work"
+      }
+    }
   }
 }
