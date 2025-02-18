@@ -85,20 +85,24 @@
     display: inline-flex;
     align-items: center;
   }
-  .servicesBanner__tags {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    .tag-button {
-      background-color: white;
-      color: rgba(77, 77, 77, 1);
-      padding: 10px 15px;
-      border-radius: 8px;
-      text-decoration: unset;
-      cursor: pointer;
-      font-size: 18px;
-      font-weight: 400;
-    }
+}
+.servicesBanner__tags {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  .tag-button {
+    background-color: white;
+    color: rgba(77, 77, 77, 1);
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: unset;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  &.servicesBanner__tags--center{
+    justify-content: center;
+    gap: 30px 20px;
   }
 }
 h2.generic-title {
@@ -145,4 +149,9 @@ h2.generic-title {
       text-align: center;
     }
   }
+}
+.services__solutions{
+  margin-bottom: 90px;
+  background-color: #F5F7FA;
+  padding: 32px 0 110px 0;
 }

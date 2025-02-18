@@ -42,7 +42,12 @@
                   key="user.services.banner.mostAsking"
                 ></app-translate
               ></span>
-              <a [href]="item.link" class="tag-button" *ngFor="let item of servicesBannerCards">{{ getTranslatedTitle(item) }}</a>
+              <a
+                [href]="item.link"
+                class="tag-button"
+                *ngFor="let item of servicesBannerCards"
+                >{{ getTranslatedTitle(item) }}</a
+              >
             </div>
           </div>
         </div>
@@ -59,10 +64,7 @@
             ></app-translate>
           </h2>
           <div class="row">
-            <div
-              class="col-lg-3 col-md-4"
-              *ngFor="let item of servicesCards"
-            >
+            <div class="col-lg-3 col-md-4" *ngFor="let item of servicesCards">
               <a class="services__cards__item" [href]="item.link">
                 <div class="services__cards__item__image">
                   <img [src]="item.image" alt="" />
@@ -71,6 +73,31 @@
                   {{ getTranslatedTitle(item) }}
                 </h3>
               </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="services__solutions">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="generic-title">
+            <app-translate
+              key="user.services.ServicesCards.title"
+            ></app-translate>
+          </h2>
+          <div class="row">
+            <div class="col-12">
+              <div class="servicesBanner__tags servicesBanner__tags--center">
+                <a
+                  [href]="item.link"
+                  class="tag-button"
+                  *ngFor="let item of servicesSolutionCards"
+                  >{{ getTranslatedTitle(item) }}</a
+                >
+              </div>
             </div>
           </div>
         </div>

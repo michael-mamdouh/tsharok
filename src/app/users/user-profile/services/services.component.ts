@@ -128,7 +128,48 @@ export class ServicesComponent implements OnInit, OnDestroy {
       link: "#",
     },
   ];
-
+  servicesSolutionCards = [
+    {
+      titleAr: "حول أعمالك للعالم الرقمي",
+      titleEn: "Title1",
+      link: "#1",
+    },
+    {
+      titleAr: "ابدا مشروعك التجاري",
+      titleEn: "Title2",
+      link: "#",
+    },
+    {
+      titleAr: "ابدا متجرك التجاري",
+      titleEn: "Title3",
+      link: "#",
+    },
+    {
+      titleAr: "تحليل بيانات",
+      titleEn: "Title4",
+      link: "#",
+    },
+    {
+      titleAr: "محاسبة شركتة الضربية",
+      titleEn: "Title5",
+      link: "#",
+    },
+    {
+      titleAr: "ابدا متجرك التجاري",
+      titleEn: "Title3",
+      link: "#",
+    },
+    {
+      titleAr: "تحليل بيانات",
+      titleEn: "Title4",
+      link: "#",
+    },
+    {
+      titleAr: "محاسبة شركتة الضربية",
+      titleEn: "Title5",
+      link: "#",
+    },
+  ];
   constructor(private langService: LanguageService, private router: Router) {}
 
   ngOnInit() {
