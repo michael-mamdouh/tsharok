@@ -85,4 +85,7 @@ export class LanguageService {
     
     return typeof value === 'string' ? value : key;
   }
+  getCurrentLanguage() {
+    return this.currentLang.value;
+  }
 }

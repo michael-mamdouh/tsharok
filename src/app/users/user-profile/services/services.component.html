@@ -26,7 +26,11 @@
                 "
                 [(ngModel)]="searchValue"
               />
-              <button class="search-button" (click)="onSearch()" [class]="getDirectionClass()">
+              <button
+                class="search-button"
+                (click)="onSearch()"
+                [class]="getDirectionClass()"
+              >
                 <app-translate
                   key="user.services.banner.buttonText"
                 ></app-translate>
@@ -43,6 +47,34 @@
               <a href="#" class="tag-button">تصميم مواقع</a>
               <a href="#" class="tag-button">تصميم مواقع</a>
               <a href="#" class="tag-button">تصميم مواقع</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="services__cards">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>
+            <app-translate
+              key="user.services.ServicesCards.title"
+            ></app-translate>
+          </h2>
+          <div class="row">
+            <div
+              class="col-lg-3 col-md-4"
+              *ngFor="let service of servicesCards"
+            >
+              <a class="services__cards__item" href="#">
+                <div class="services__cards__item__image">
+                  <img [src]="service.image" alt="" />
+                </div>
+                <h3>
+                  {{ getTranslatedTitle(service) }}
+                </h3>
+              </a>
             </div>
           </div>
         </div>
