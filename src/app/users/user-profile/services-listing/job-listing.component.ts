@@ -9,7 +9,7 @@ import { FormsModule } from "@angular/forms";
 import { Subscription } from "rxjs";
 
 @Component({
-  selector: "app-services",
+  selector: "app-job-listing",
   standalone: true,
   imports: [
     CommonModule,
@@ -19,10 +19,10 @@ import { Subscription } from "rxjs";
     TranslateComponent,
     FormsModule,
   ],
-  templateUrl: "./services.component.html",
-  styleUrls: ["./services.component.scss"],
+  templateUrl: "./job-listing.component.html",
+  styleUrls: ["./job-listing.component.scss"],
 })
-export class ServicesComponent implements OnInit, OnDestroy {
+export class JobListingComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
   searchValue: string = "";
   currentLanguage: string = "ar";

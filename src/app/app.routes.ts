@@ -20,6 +20,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { authGuard } from './guards/auth.guard';
 import { publicGuard } from './guards/public.guard';
 import { ServicesComponent } from './users/user-profile/services/services.component';
+import { JobListingComponent } from './users/user-profile/services-listing/job-listing.component';
 
 export const routes: Routes = [
   { 
@@ -57,6 +58,13 @@ export const routes: Routes = [
       {
         path: 'services',
         component: ServicesComponent,
+      },
+      {
+        path: 'jobs',
+        children: [
+          {path: 'listing',
+          component: JobListingComponent}
+        ]
       },
     ]
   },

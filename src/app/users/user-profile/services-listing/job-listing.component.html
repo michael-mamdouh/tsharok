@@ -1,0 +1,107 @@
+<div class="services">
+  <div
+    class="servicesBanner"
+    style="background-image: url(../../../../assets/images/services-banner.png)"
+  >
+    <div class="servicesBanner-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+            <h2>
+              <app-translate
+                key="user.services.banner.bannerTitle"
+              ></app-translate>
+            </h2>
+            <p>
+              <app-translate
+                key="user.services.banner.bannerBrief"
+              ></app-translate>
+            </p>
+            <div class="servicesBanner__search">
+              <input
+                type="text"
+                class="search-input"
+                [placeholder]="
+                  getTranslatedText('user.services.banner.inputPlaceholder')
+                "
+                [(ngModel)]="searchValue"
+              />
+              <button
+                class="search-button"
+                (click)="onSearch()"
+                [class]="getDirectionClass()"
+              >
+                <app-translate
+                  key="user.services.banner.buttonText"
+                ></app-translate>
+              </button>
+            </div>
+            <div class="servicesBanner__tags">
+              <span>
+                <app-translate
+                  key="user.services.banner.mostAsking"
+                ></app-translate
+              ></span>
+              <a
+                [href]="item.link"
+                class="tag-button"
+                *ngFor="let item of servicesBannerCards"
+                >{{ getTranslatedTitle(item) }}</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="services__cards">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="generic-title">
+            <app-translate
+              key="user.services.ServicesCards.title"
+            ></app-translate>
+          </h2>
+          <div class="row">
+            <div class="col-lg-3 col-md-4" *ngFor="let item of servicesCards">
+              <a class="services__cards__item" [href]="item.link">
+                <div class="services__cards__item__image">
+                  <img [src]="item.image" alt="" />
+                </div>
+                <h3>
+                  {{ getTranslatedTitle(item) }}
+                </h3>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="services__solutions">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="generic-title">
+            <app-translate
+              key="user.services.ServicesCards.title"
+            ></app-translate>
+          </h2>
+          <div class="row">
+            <div class="col-12">
+              <div class="servicesBanner__tags servicesBanner__tags--center">
+                <a
+                  [href]="item.link"
+                  class="tag-button"
+                  *ngFor="let item of servicesSolutionCards"
+                  >{{ getTranslatedTitle(item) }}</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
