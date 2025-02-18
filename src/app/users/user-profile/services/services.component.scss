@@ -101,16 +101,16 @@
     }
   }
 }
-
+h2.generic-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 70px;
+  text-align: center;
+}
 .services__cards {
   margin-bottom: 50px;
-  h2 {
-    font-size: 28px;
-    font-weight: 600;
-    color: #000000;
-    margin-bottom: 70px;
-    text-align: center;
-  }
+
   .services__cards__item {
     border-radius: 8px;
     overflow: hidden;

@@ -27,68 +27,106 @@ export class ServicesComponent implements OnInit, OnDestroy {
   searchValue: string = "";
   currentLanguage: string = "ar";
   private langSubscription!: Subscription;
-
+  servicesBannerCards = [
+    {
+      titleAr: "تصميم مواقع",
+      titleEn: "Title1",
+      link: "#1",
+    },
+    {
+      titleAr: "تصميم مواقع",
+      titleEn: "Title2",
+      link: "#",
+    },
+    {
+      titleAr: "تصميم مواقع",
+      titleEn: "Title3",
+      link: "#",
+    },
+    {
+      titleAr: "تصميم مواقع",
+      titleEn: "Title4",
+      link: "#",
+    },
+    {
+      titleAr: "تصميم مواقع",
+      titleEn: "Title5",
+      link: "#",
+    },
+  ];
   servicesCards = [
     {
       titleAr: "تجديد رخصة عمل",
       titleEn: "Title1",
       image: "https://picsum.photos/id/230/200/200",
+      link: "#1",
     },
     {
       titleAr: "تصميم مواقع",
       titleEn: "Title2",
       image: "https://picsum.photos/id/231/200/300",
+      link: "#",
     },
     {
       titleAr: "إدارة حسابات التواصل",
       titleEn: "Title3",
       image: "https://picsum.photos/id/232/200/200",
+      link: "#",
     },
     {
       titleAr: "التسويق الإلكتروني",
       titleEn: "Title4",
       image: "https://picsum.photos/id/233/200/200",
+      link: "#",
     },
     {
       titleAr: "تجديد رخصة عمل",
       titleEn: "Title1",
       image: "https://picsum.photos/id/230/200/200",
+      link: "#",
     },
     {
       titleAr: "تصميم مواقع",
       titleEn: "Title2",
       image: "https://picsum.photos/id/231/200/300",
+      link: "#",
     },
     {
       titleAr: "إدارة حسابات التواصل",
       titleEn: "Title3",
       image: "https://picsum.photos/id/232/200/200",
+      link: "#",
     },
     {
       titleAr: "التسويق الإلكتروني",
       titleEn: "Title4",
       image: "https://picsum.photos/id/233/200/200",
+      link: "#",
     },
     {
       titleAr: "تجديد رخصة عمل",
       titleEn: "Title1",
       image: "https://picsum.photos/id/230/200/200",
+      link: "#",
     },
     {
       titleAr: "تصميم مواقع",
       titleEn: "Title2",
       image: "https://picsum.photos/id/231/200/300",
+      link: "#",
     },
     {
       titleAr: "إدارة حسابات التواصل",
       titleEn: "Title3",
       image: "https://picsum.photos/id/232/200/200",
+      link: "#",
     },
     {
       titleAr: "التسويق الإلكتروني",
       titleEn: "Title4",
       image: "https://picsum.photos/id/233/200/200",
-    }
+      link: "#",
+    },
   ];
 
   constructor(private langService: LanguageService, private router: Router) {}
@@ -100,7 +138,7 @@ export class ServicesComponent implements OnInit, OnDestroy {
   }
 
   getDirectionClass(): string {
-    return document.dir === 'rtl' ? 'rightDirection' : 'leftDirection';
+    return document.dir === "rtl" ? "rightDirection" : "leftDirection";
   }
 
   getTranslatedText(key: string): string {
